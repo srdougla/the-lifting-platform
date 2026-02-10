@@ -2,6 +2,8 @@ body {
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     padding-bottom: 100px;
+    min-width: 320px;
+    overflow-x: hidden;
 }
 
 footer {
@@ -11,6 +13,7 @@ footer {
     width: 100%;
 }
 
+/* ==================== NAVBAR ==================== */
 .navbar {
     display: flex;
     flex-wrap: wrap;
@@ -72,6 +75,13 @@ footer {
     overflow: hidden;
 }
 
+@media (max-width: 480px) {
+    .dropdown-content {
+        right: auto;
+        left: 0;
+    }
+}
+
 .dropdown-content a {
     color: rgb(5, 5, 105);
     padding: 14px 20px;
@@ -96,10 +106,25 @@ footer {
     color: darkblue;
 }
 
+@media (max-width: 768px) {
+    .greeting {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .greeting {
+        font-size: 1rem;
+    }
+}
+
+/* ==================== STATS ==================== */
 .stats {
     display: flex;
     justify-content: space-between;
     font-size: 25px;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 .stat {
@@ -108,12 +133,14 @@ footer {
     padding: 3%;
     border-radius: 8px;
     border-color:#021462;
-    width: 25%;
+    width: calc(25% - 10px);
     text-align: center;
     border-style: solid;
     border-width: 3px;
+    box-sizing: border-box;
 }
 
+/* ==================== CALENDAR ==================== */
 .calendar-container {
     max-width: 800px;
     margin: 0 auto;
@@ -158,6 +185,18 @@ footer {
     gap: 8px;
 }
 
+@media (max-width: 768px) {
+    .calendar-grid {
+        gap: 4px;
+    }
+}
+
+@media (max-width: 480px) {
+    .calendar-grid {
+        gap: 2px;
+    }
+}
+
 .day-header {
     text-align: center;
     font-weight: bold;
@@ -174,6 +213,9 @@ footer {
     cursor: pointer;
     background: white;
     transition: all 0.2s;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .day-cell:hover {
@@ -202,6 +244,9 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .event:hover {
@@ -293,20 +338,21 @@ footer {
     background: #545b62;
 }
 
+/* ==================== PROFILE ==================== */
 .profile {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    max-width: 900px; /* Increased from 500px */
+    max-width: 900px;
     margin: 40px auto;
-    padding: 50px; /* Increased from 30px */
+    padding: 50px;
     background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-    border-radius: 16px; /* Increased from 8px */
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
-    font-size: 22px; /* Increased from 20px */
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    font-size: 22px;
 }
 
 .profile label {
     display: block;
-    margin-bottom: 12px; /* Increased from 8px */
+    margin-bottom: 12px;
     font-weight: 600;
     color: #1a1a2e;
     font-size: 1.1rem;
@@ -316,10 +362,10 @@ footer {
 
 .profile input[type="text"] {
     width: 100%;
-    padding: 16px 18px; /* Increased from 10px 12px */
-    margin-bottom: 24px; /* Increased from 16px */
-    border: 2px solid #e0e0e0; /* Thicker border */
-    border-radius: 10px; /* Increased from 6px */
+    padding: 16px 18px;
+    margin-bottom: 24px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
     box-sizing: border-box;
     transition: all 0.3s ease;
     font-size: 1.1rem;
@@ -356,7 +402,7 @@ footer {
 .profile button {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     width: 100%;
-    padding: 18px; /* Increased from 12px */
+    padding: 18px;
     background: linear-gradient(135deg, #0400ff 0%, #534aff 100%);
     color: white;
     border: none;
@@ -364,7 +410,7 @@ footer {
     font-weight: 600;
     font-size: 1.2rem;
     cursor: pointer;
-    margin-top: 30px; /* Increased from 20px */
+    margin-top: 30px;
     transition: all 0.3s ease;
     box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
 }
@@ -392,7 +438,7 @@ footer {
 .profile-container {
     display: flex;
     align-items: center;
-    gap: 40px; /* Increased from 20px */
+    gap: 40px;
     margin-bottom: 40px;
     padding: 30px;
     background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
@@ -404,7 +450,7 @@ footer {
 }
 
 .profile-pic img {
-    width: 350px; /* Increased from 300px */
+    width: 350px;
     height: 350px;
     border-radius: 50%;
     object-fit: cover;
@@ -443,7 +489,6 @@ footer {
     font-weight: 700;
 }
 
-/* Form section styling */
 .profile > h3 {
     font-size: 1.8rem;
     margin-bottom: 30px;
@@ -453,7 +498,6 @@ footer {
     padding-bottom: 15px;
 }
 
-/* Radio button group styling */
 .radio-group {
     display: flex;
     align-items: center;
@@ -464,32 +508,35 @@ footer {
     border-radius: 10px;
 }
 
-/* Responsive design */
-@media (max-width: 900px) {
-    .profile {
-        max-width: 95%;
-        padding: 30px;
-    }
-    
-    .profile-container {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .profile-pic img {
-        width: 250px;
-        height: 250px;
-    }
-    
-    .profile-info {
-        font-size: 1.3rem;
-    }
-    
-    .profile-info h2 {
-        font-size: 2rem;
-    }
+#edit-profile {
+    display: block;
+    margin: 2rem auto;
+    padding: 0.9rem 2.5rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
+#edit-profile:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+#edit-profile:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(102, 126, 234, 0.4);
+}
+
+/* ==================== GAME CONTAINER ==================== */
 .game-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -608,6 +655,7 @@ footer {
     margin-bottom: 20px;
 }
 
+/* ==================== JOURNAL ==================== */
 .journal {
     display: flex;
     flex-wrap: wrap;
@@ -617,6 +665,7 @@ footer {
 
 .journal img {
     width: 380px;
+    max-width: 100%;
     transition: 0.3s ease;
     border-radius: 20%;
 }
@@ -627,6 +676,7 @@ footer {
     cursor: pointer;
 }
 
+/* ==================== LIBRARY ==================== */
 .library-container {
     display: flex;
 }
@@ -658,13 +708,28 @@ footer {
     flex-direction: column;            
     justify-content: flex-start;
     align-items: center;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 #videoDescription {
     max-width: 1000px;
+    width: 100%;
     margin-top: 20px;
+    box-sizing: border-box;
 }
 
+#videoDescription iframe,
+#videoDescription video,
+#videoDescription embed,
+#videoDescription object {
+    max-width: 100% !important;
+    width: 100% !important;
+    height: auto !important;
+}
+
+/* ==================== PR TABLE ==================== */
 #prTable {
     width: 90%;
     max-width: 1400px;
@@ -713,7 +778,6 @@ footer {
     color: #667eea;
 }
 
-/* Button styling */
 #addPrBtn {
     display: block;
     margin: 2rem auto;
@@ -738,7 +802,6 @@ footer {
     transform: translateY(0);
 }
 
-/* Form styling */
 #newPrForm {
     width: 90%;
     max-width: 600px;
@@ -789,7 +852,7 @@ footer {
     transform: translateY(0);
 }
 
-/* GOALS SECTION ---------------------------------------------------------------------------------*/
+/* ==================== GOALS SECTION ==================== */
 .goals-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -799,7 +862,6 @@ footer {
     padding: 0 2rem;
 }
 
-/* Goal Card Base Styles */
 .goal-card {
     background: #ffffff;
     border-radius: 12px;
@@ -814,7 +876,6 @@ footer {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Priority Border Colors */
 .goal-card.priority-high {
     border-left-color: #dc3545;
 }
@@ -827,7 +888,6 @@ footer {
     border-left-color: #28a745;
 }
 
-/* Completed State */
 .goal-card.completed {
     opacity: 0.7;
     background: #f8f9fa;
@@ -838,7 +898,6 @@ footer {
     color: #6c757d;
 }
 
-/* Card Header */
 .card-header {
     display: flex;
     justify-content: space-between;
@@ -854,7 +913,6 @@ footer {
     color: #1a1a2e;
 }
 
-/* Priority Badge */
 .priority-badge {
     padding: 0.4rem 0.8rem;
     border-radius: 20px;
@@ -879,7 +937,6 @@ footer {
     color: #28a745;
 }
 
-/* Card Body */
 .card-body {
     margin-bottom: 1.5rem;
 }
@@ -929,7 +986,6 @@ footer {
     font-size: 0.95rem;
 }
 
-/* Card Actions */
 .card-actions {
     display: flex;
     gap: 0.5rem;
@@ -977,7 +1033,6 @@ footer {
     transform: translateY(-2px);
 }
 
-/* Form Styling */
 #createGoal {
     display: block;
     margin: 2rem auto;
@@ -1077,19 +1132,7 @@ footer {
     box-shadow: 0 6px 16px rgba(30, 60, 114, 0.4);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .goals-container {
-        grid-template-columns: 1fr;
-        padding: 0 1rem;
-    }
-    
-    .card-actions {
-        flex-direction: column;
-    }
-}
-
-/* Upload Section */
+/* ==================== GALLERY ==================== */
 .upload-section {
     background: white;
     padding: 2rem;
@@ -1120,7 +1163,6 @@ footer {
     display: none;
 }
 
-/* Gallery Grid */
 .gallery {
     display: flex;
     flex-wrap: wrap;
@@ -1180,7 +1222,7 @@ footer {
     line-height: 1.4;
 }
 
-.delete-btn {
+.photo-card .delete-btn {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -1204,12 +1246,11 @@ footer {
     opacity: 1;
 }
 
-.delete-btn:hover {
+.photo-card .delete-btn:hover {
     background: rgba(200, 35, 51, 1);
     transform: scale(1.15);
 }
 
-/* Caption Input */
 .caption-input {
     width: 100%;
     padding: 0.8rem;
@@ -1224,7 +1265,7 @@ footer {
     border-color: #1e3c72;
 }
 
-/* Info Section Styling */
+/* ==================== INFO SECTION ==================== */
 .info-intro {
     max-width: 1200px;
     margin: 2rem auto 1rem;
@@ -1241,6 +1282,22 @@ footer {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
+.info-intro h2 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+    font-size: 1.5rem;
+}
+
+.info-intro h4 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: #7f8c8d;
+    font-weight: 400;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
 .info-intro p {
     color: #1e3c72;
     font-size: 1.2rem;
@@ -1248,7 +1305,54 @@ footer {
     line-height: 1.6;
 }
 
-/* Table Styling */
+.info-intro label {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    color: #34495e;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.info-intro input[type="number"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+    box-sizing: border-box;
+}
+
+.info-intro input[type="number"]:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+.info-intro input[type="number"]::placeholder {
+    color: #95a5a6;
+    font-style: italic;
+}
+
+.info-intro .result {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: #fff;
+    border-left: 4px solid #27ae60;
+    border-radius: 4px;
+}
+
+.info-intro .result p {
+    margin: 0;
+    color: #27ae60;
+    font-size: 1.1rem;
+}
+
+.info-intro .result strong {
+    color: #219653;
+}
+
+/* ==================== PERCENTAGES TABLE ==================== */
 #percentages {
     width: 90%;
     max-width: 1400px;
@@ -1308,7 +1412,6 @@ footer {
     background: linear-gradient(to right, rgba(0, 0, 139, 0.05) 0%, transparent 100%);
 }
 
-/* Highlight specific percentage columns */
 #percentages th:nth-child(6),
 #percentages td:nth-child(6) {
     background-color: rgba(255, 0, 0, 0.05);
@@ -1331,7 +1434,6 @@ footer {
     color: #dc3545;
 }
 
-/* Add red accent border to 100% column */
 #percentages th:last-child {
     border-left: 3px solid #dc3545;
 }
@@ -1349,159 +1451,64 @@ footer {
     margin: 0 auto;
 }
 
-.info-intro {
-    flex: 1;
-    min-width: 300px;
-    background: #f8f9fa;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.info-intro h2 {
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-    color: #2c3e50;
-    font-size: 1.5rem;
-}
-
-.info-intro h4 {
-    margin-top: 0;
-    margin-bottom: 1.5rem;
-    color: #7f8c8d;
-    font-weight: 400;
-    font-size: 0.95rem;
-    line-height: 1.5;
-}
-
-.info-intro label {
-    display: block;
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
-    color: #34495e;
-    font-weight: 600;
-    font-size: 0.9rem;
-}
-
-.info-intro input[type="number"] {
-    width: 100%;
-    padding: 0.75rem;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: border-color 0.3s;
-    box-sizing: border-box;
-}
-
-.info-intro input[type="number"]:focus {
-    outline: none;
-    border-color: #3498db;
-}
-
-.info-intro input[type="number"]::placeholder {
-    color: #95a5a6;
-    font-style: italic;
-}
-
-.info-intro .result {
-    margin-top: 1.5rem;
-    padding: 1rem;
-    background: #fff;
-    border-left: 4px solid #27ae60;
-    border-radius: 4px;
-}
-
-.info-intro .result p {
-    margin: 0;
-    color: #27ae60;
-    font-size: 1.1rem;
-}
-
-.info-intro .result strong {
-    color: #219653;
-}
-
-/* Edit Profile Button Styling */
-#edit-profile {
-    display: block;
-    margin: 2rem auto;
-    padding: 0.9rem 2.5rem;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    border: none;
-    border-radius: 25px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-#edit-profile:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
-    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
-}
-
-#edit-profile:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 10px rgba(102, 126, 234, 0.4);
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-    .solving {
-        padding: 1rem;
-        gap: 1rem;
-    }
-    
-    .info-intro {
-        padding: 1.5rem;
-        min-width: 100%;
-    }
-}
-
+/* ==================== PROGRAMMING ==================== */
 .week {
-    background-color: gray;
+    background-color: #f5f5f5;
     max-width: 1400px;
     margin: 0 auto;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
 }
 
 .day {
-    background-color: darkblue;
-    color: white;
-    padding: 1.5%;
-    margin: 1%;
+    background-color: #fff;
+    color: #333;
+    padding: 1rem;
+    margin: 0.5rem 0;
     font-size: 16px;
+    border-left: 4px solid darkblue;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .exercise {
     display: flex;
     flex-wrap: wrap;
-    font-size: 12px;
+    font-size: 14px;
     margin-bottom: 10px;
-    justify-content: flex-end;
+    padding: 0.5rem;
+    background: #f9f9f9;
+    border-radius: 4px;
+    gap: 10px;
+}
+
+.exercise h2 {
+    font-size: 16px;
+    margin: 0;
 }
 
 .exercise h2:first-child {
-    flex: 0 0 auto;
+    flex: 1 1 100%;
     margin-right: auto;
     text-align: left;
+    color: darkblue;
+    font-weight: 600;
 }
 
 .exercise h2:not(:first-child) {
     flex: 0 0 auto;
-    margin-left: 15px;
     text-align: right;
+    color: #666;
+    font-weight: 400;
 }
 
 .program-card {
-    background: #f5f5f5;
+    background: #fff;
     padding: 1.5rem;
     margin: 1rem 0;
     border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .program-card button {
@@ -1510,10 +1517,11 @@ footer {
     color: white;
     border-radius: 5px;
     background: linear-gradient(135deg, #0400ff 0%, #534aff 100%);
-    padding: 8px;
-    font-size: 15px;
+    padding: 8px 16px;
+    font-size: 14px;
     cursor: pointer;
     transition: 0.3s ease;
+    border: none;
 }
 
 .program-card button:hover {
@@ -1525,11 +1533,12 @@ footer {
     color: white;
     border-radius: 5px;
     background: linear-gradient(135deg, #0400ff 0%, #534aff 100%);
-    padding: 8px;
-    font-size: 15px;
+    padding: 10px 20px;
+    font-size: 16px;
     cursor: pointer;
     transition: 0.3s ease;
     margin-bottom: 5px;
+    border: none;
 }
 
 .main-btn:hover {
@@ -1579,12 +1588,10 @@ footer {
     border-color: #0400ff;
 }
 
-/* Days Container */
 #daysContainer {
     margin-top: 2rem;
 }
 
-/* Individual Day Cards */
 .day-container {
     background: #f8f9fa;
     border-left: 4px solid #0400ff;
@@ -1604,7 +1611,6 @@ footer {
     align-items: center;
 }
 
-/* Exercise Containers */
 .exercise-container {
     background: white;
     padding: 1.25rem;
@@ -1648,12 +1654,6 @@ footer {
     border-color: #0400ff;
 }
 
-/* Custom Exercise Input */
-#custom-exercise-${dayNum}-${exNum} {
-    margin-top: 0.75rem;
-}
-
-/* Sets Display */
 .set-row {
     display: flex;
     align-items: center;
@@ -1662,6 +1662,7 @@ footer {
     background: #f8f9fa;
     border-radius: 6px;
     margin-bottom: 0.5rem;
+    flex-wrap: wrap;
 }
 
 .set-row span {
@@ -1690,7 +1691,6 @@ footer {
     border-color: #0400ff;
 }
 
-/* Buttons */
 .remove-btn {
     background: linear-gradient(135deg, #ff0000 0%, #ff4a4a 100%);
     color: white;
@@ -1785,6 +1785,7 @@ footer {
     background: linear-gradient(135deg, #fa8d8d 0%, #ff4a4a 100%);
     transform: translateY(-1px);
 }
+
 .week-builder {
     background: #e9ecef;
     border: 3px solid #0400ff;
@@ -1823,50 +1824,52 @@ footer {
 }
 
 #program-display .program {
-    background-color: gray;
+    background-color: #f5f5f5;
     max-width: 1400px;
     margin: 0 auto;
 }
 
 #program-display .week {
-    background-color: gray;
+    background-color: #f5f5f5;
     max-width: 1400px;
     margin: 0 auto;
 }
 
 #program-display .day {
-    background-color: darkblue;
-    color: white;
-    padding: 1.5%;
-    margin: 1%;
+    background-color: #fff;
+    color: #333;
+    padding: 1rem;
+    margin: 0.5rem 0;
     font-size: 16px;
+    border-left: 4px solid darkblue;
 }
 
 #program-display .exercise {
     display: flex;
     flex-wrap: wrap;
-    font-size: 12px;
+    font-size: 14px;
     margin-bottom: 10px;
-    justify-content: flex-end;
+    padding: 0.5rem;
+    gap: 10px;
 }
 
 #program-display .exercise h2:first-child {
-    flex: 0 0 auto;
+    flex: 1 1 100%;
     margin-right: auto;
     text-align: left;
 }
 
 #program-display .exercise h2:not(:first-child) {
     flex: 0 0 auto;
-    margin-left: 15px;
     text-align: right;
 }
 
+/* ==================== BAR LOADING GAME ==================== */
 #start-screen {
     text-align: center;
-    padding: 50px;
+    padding: 50px 20px;
     max-width: 500px;
-    margin: 100px auto;
+    margin: 50px auto;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -1921,11 +1924,13 @@ footer {
     display: flex;
     justify-content: space-between;
     padding: 4%;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .barbell-area {
     background: #444;
-    padding: 40px;
+    padding: 40px 20px;
     border-radius: 10px;
     margin-bottom: 30px;
     overflow-x: auto;
@@ -1942,7 +1947,7 @@ footer {
 .sleeve {
     position: relative;
     height: 120px;
-    min-width: 150px;
+    min-width: 100px;
     display: flex;
     align-items: center;
 }
@@ -1983,6 +1988,8 @@ footer {
 .plateCategory {
     display: flex;
     gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .plateCategory img:hover {
@@ -2057,13 +2064,14 @@ footer {
             rgba(255, 255, 255, 0) 50%,
             rgba(0, 0, 0, 0.2) 100%
         ),
-        red;  /* Base color underneath */
+        red;
     width: 12%;
     aspect-ratio: 1/8;
     border-radius: 4px;
     margin: 1.5%;
     cursor: pointer;
 }
+
 .blue-plate { 
     background:
         linear-gradient(135deg, 
@@ -2078,6 +2086,7 @@ footer {
     margin: 1.5%;
     cursor: pointer;
 }
+
 .yellow-plate { 
     background:
         linear-gradient(135deg, 
@@ -2092,6 +2101,7 @@ footer {
     margin: 1.5%;
     cursor: pointer;
 }
+
 .green-plate { 
     background:
         linear-gradient(135deg, 
@@ -2106,6 +2116,7 @@ footer {
     margin: 1.5%;
     cursor: pointer;
 }
+
 .white-plate { 
     background-color: white; 
     width: 12%;
@@ -2114,6 +2125,7 @@ footer {
     margin: 1.5%;
     cursor: pointer;
 }
+
 .change-white-plate {
     background:
         linear-gradient(135deg, 
@@ -2128,6 +2140,7 @@ footer {
     margin: 1.5%;
     cursor: pointer;
 }
+
 .change-red-plate {
     background:
         linear-gradient(135deg, 
@@ -2142,6 +2155,7 @@ footer {
     margin: 1.5%;
     cursor: pointer;
 }
+
 .change-blue-plate {
     background:
         linear-gradient(135deg, 
@@ -2156,6 +2170,7 @@ footer {
     margin: 1.5%;
     cursor: pointer;
 }
+
 .change-yellow-plate {
     background:
         linear-gradient(135deg, 
@@ -2170,6 +2185,7 @@ footer {
     margin: 1.5%;
     cursor: pointer;
 }
+
 .change-green-plate {
     background:
         linear-gradient(135deg, 
@@ -2184,6 +2200,7 @@ footer {
     margin: 1.5%;
     cursor: pointer;
 }
+
 .change-white-tiny-plate {
     background:
         linear-gradient(135deg, 
@@ -2198,6 +2215,7 @@ footer {
     margin: 1.5%;
     cursor: pointer;
 }
+
 .bumper-white-plate {
     background:
         linear-gradient(135deg, 
@@ -2212,6 +2230,7 @@ footer {
     margin: 1.5%;
     cursor: pointer;
 }
+
 .bumper-red-plate {
     background:
         linear-gradient(135deg, 
@@ -2226,8 +2245,8 @@ footer {
     margin: 1.5%;
     cursor: pointer;
 }
+
 .collar-plate { 
-    /* background-color: silver;  */
     width: 10%;
     aspect-ratio: 1/2;
     border-radius: 1px;
@@ -2235,10 +2254,12 @@ footer {
     cursor: pointer;
     background: linear-gradient(to bottom, #f5f5f5, #b8b8b8, #8a8a8a, #c0c0c0, #e8e8e8);
 }
+
 #submitTotal {
     text-align: center;
     margin: 30px 0;
 }
+
 #submitButton {
     padding: 20px 50px;
     font-size: 22px;
@@ -2253,15 +2274,18 @@ footer {
     text-transform: uppercase;
     letter-spacing: 1px;
 }
+
 #submitButton:hover {
     background-color: red;
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
+
 #submitButton:active {
     transform: translateY(0);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
+
 #feedback-modal {
     display: none;
     position: fixed;
@@ -2274,30 +2298,19 @@ footer {
     align-items: center;
     z-index: 1000;
 }
-.modal-content {
-    background-color: white;
-    padding: 40px;
-    border-radius: 15px;
-    text-align: center;
-    max-width: 500px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
+
 #feedback-title {
     color: rgb(5, 5, 105);
     margin-bottom: 20px;
     font-size: 28px;
 }
+
 #feedback-message {
     font-size: 18px;
     margin-bottom: 30px;
     color: #333;
 }
-.modal-buttons {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
+
 .modal-btn {
     padding: 15px 30px;
     font-size: 16px;
@@ -2307,31 +2320,37 @@ footer {
     cursor: pointer;
     transition: all 0.3s ease;
 }
+
 #try-again-btn {
     background-color: rgb(5, 5, 105);
     color: white;
 }
+
 #try-again-btn:hover {
     background-color: rgb(3, 3, 80);
     transform: translateY(-2px);
 }
+
 #reveal-answer-btn {
     background-color: #666;
     color: white;
 }
+
 #reveal-answer-btn:hover {
     background-color: #555;
     transform: translateY(-2px);
 }
+
 #next-round-btn {
     background-color: red;
     color: white;
 }
+
 #next-round-btn:hover {
     background-color: darkred;
     transform: translateY(-2px);
 }
-/* Answer Display */
+
 #answer-display {
     display: none;
     position: fixed;
@@ -2347,10 +2366,11 @@ footer {
 
 .answer-content {
     background-color: white;
-    padding: 40px;
+    padding: 40px 20px;
     border-radius: 15px;
     text-align: center;
     max-width: 800px;
+    width: 90%;
     max-height: 90vh;
     overflow-y: auto;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
@@ -2372,6 +2392,7 @@ footer {
     color: red;
     font-size: 24px;
 }
+
 #answer-left-sleeve {
     flex-direction: row-reverse;
 }
@@ -2410,6 +2431,12 @@ footer {
     color: white;
     display: block;
     margin: 30px auto 0;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
 #play-again-btn:hover {
@@ -2417,6 +2444,7 @@ footer {
     transform: translateY(-2px);
 }
 
+/* ==================== NOTES SECTION ==================== */
 .new-entry-section {
     background: white;
     padding: 2rem;
@@ -2559,19 +2587,404 @@ footer {
     border-radius: 12px;
 }
 
-@media (max-width: 768px) {
-    body {
-        padding: 1rem;
-    }
+/* ==================== MOBILE RESPONSIVE STYLES ==================== */
 
-    h1 {
+/* Large tablets and small desktops */
+@media (max-width: 992px) {
+    .profile {
+        max-width: 95%;
+        padding: 30px;
+    }
+    
+    .profile-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .profile-pic img {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .profile-info {
+        font-size: 1.3rem;
+    }
+    
+    .profile-info h2 {
         font-size: 2rem;
     }
 
-    .new-entry-section {
-        padding: 1.5rem;
+    .goals-container {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+    
+    .card-actions {
+        flex-direction: column;
     }
 
+    .library-container {
+        flex-direction: column;
+    }
+
+    .library-nav {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+    /* Navbar */
+    .navbar {
+        padding: 10px 20px;
+    }
+
+    .logo {
+        width: 60px;
+    }
+
+    .logo-section {
+        gap: 10px;
+    }
+
+    .dropdown-btn {
+        padding: 8px 16px;
+        font-size: 16px;
+    }
+
+    .dropdown-content a {
+        font-size: 16px;
+        padding: 12px 16px;
+    }
+
+    /* Stats */
+    .stats {
+        flex-direction: column;
+        gap: 1rem;
+        font-size: 18px;
+    }
+
+    .stat {
+        width: 100%;
+        font-size: 20px;
+        padding: 15px;
+    }
+
+    /* Journal */
+    .journal {
+        gap: 15px;
+        padding: 0 10px;
+    }
+
+    .journal img {
+        width: calc(50% - 10px);
+        max-width: calc(50% - 10px);
+    }
+
+    /* Calendar */
+    .calendar-container {
+        padding: 15px;
+    }
+
+    .calendar-header h2 {
+        font-size: 20px;
+    }
+
+    .calendar-nav button {
+        padding: 6px 12px;
+        font-size: 16px;
+    }
+
+    .day-cell {
+        min-height: 60px;
+        padding: 4px;
+    }
+
+    .event {
+        font-size: 10px;
+        padding: 2px 4px;
+    }
+
+    /* Gallery - Make 2 columns on mobile */
+    .photo-card {
+        flex: 0 0 calc(50% - 0.5rem);
+        max-width: calc(50% - 0.5rem);
+    }
+
+    /* Programming */
+    .week {
+        padding: 0.5rem;
+    }
+
+    .day {
+        padding: 0.75rem;
+        font-size: 14px;
+    }
+
+    .exercise {
+        font-size: 12px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .exercise h2 {
+        font-size: 14px;
+    }
+
+    .exercise h2:first-child {
+        flex: 1 1 100%;
+    }
+
+    .exercise h2:not(:first-child) {
+        text-align: left;
+        margin-left: 0;
+    }
+
+    .program-card button {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    #create-screen {
+        padding: 1rem;
+    }
+
+    .day-container,
+    .exercise-container {
+        padding: 1rem;
+    }
+
+    .set-row {
+        flex-wrap: wrap;
+    }
+
+    /* Bar Loading Game */
+    #gameHeader {
+        padding: 2%;
+    }
+
+    .barbell-area {
+        padding: 20px 10px;
+        overflow-x: auto;
+    }
+
+    .barbell {
+        min-height: 100px;
+    }
+
+    .sleeve {
+        min-width: 60px;
+        height: 150px;
+    }
+
+    .shaft {
+        width: 200px;
+        height: 12px;
+        font-size: 10px;
+    }
+
+    .collar {
+        width: 20px;
+        height: 20px;
+    }
+
+    #plateContainer {
+        min-height: 300px;
+    }
+
+    .plateCategory img {
+        max-width: 80px;
+    }
+
+    #bigPlates img {
+        width: 80px;
+    }
+
+    #whiteChange img {
+        width: 50px;
+    }
+
+    #redChange img {
+        width: 45px;
+    }
+
+    #blueChange img {
+        width: 40px;
+    }
+
+    #yellowChange img {
+        width: 38px;
+    }
+
+    #greenChange img {
+        width: 35px;
+    }
+
+    #whiteChangeSmall img {
+        width: 30px;
+    }
+
+    #bumperPlates img {
+        width: 80px;
+    }
+
+    #collarPlates img {
+        width: 35px;
+    }
+
+    /* Plate sizes - use original width % and aspect ratios */
+    .red-plate {
+        width: 12%;
+        aspect-ratio: 1/8;
+    }
+    
+    .blue-plate {
+        width: 12%;
+        aspect-ratio: 1/8;
+    }
+    
+    .yellow-plate {
+        width: 12%;
+        aspect-ratio: 1/8;
+    }
+    
+    .green-plate {
+        width: 12%;
+        aspect-ratio: 1/8;
+    }
+    
+    .white-plate {
+        width: 12%;
+        aspect-ratio: 1/8;
+    }
+    
+    .change-white-plate {
+        width: 6%;
+        aspect-ratio: 1/9;
+    }
+    
+    .change-red-plate {
+        width: 5%;
+        aspect-ratio: 1/8.5;
+    }
+    
+    .change-blue-plate {
+        width: 5%;
+        aspect-ratio: 1/7.25;
+    }
+    
+    .change-yellow-plate {
+        width: 5%;
+        aspect-ratio: 1/6.15;
+    }
+    
+    .change-green-plate {
+        width: 5%;
+        aspect-ratio: 1/5.1;
+    }
+    
+    .change-white-tiny-plate {
+        width: 5%;
+        aspect-ratio: 1/4.05;
+    }
+    
+    .bumper-white-plate {
+        width: 25%;
+        aspect-ratio: 1/4;
+    }
+    
+    .bumper-red-plate {
+        width: 25%;
+        aspect-ratio: 1/4;
+    }
+    
+    .collar-plate {
+        width: 10%;
+        aspect-ratio: 1/2;
+    }
+
+    #submitButton {
+        padding: 15px 30px;
+        font-size: 18px;
+    }
+
+    /* Percentage Table - Allow horizontal scroll */
+    #percentages {
+        font-size: 0.7rem;
+        display: block;
+        overflow-x: auto;
+    }
+
+    #percentages th,
+    #percentages td {
+        padding: 0.5rem;
+        min-width: 60px;
+    }
+
+    #percentages td:first-child {
+        font-size: 0.9rem;
+        position: sticky;
+        left: 0;
+        background: white;
+        z-index: 1;
+    }
+
+    /* Profile Edit */
+    .profile {
+        padding: 20px;
+        margin: 20px 10px;
+    }
+
+    .profile label {
+        font-size: 0.9rem;
+    }
+
+    .profile input[type="text"] {
+        padding: 12px;
+        font-size: 1rem;
+    }
+
+    .profile button {
+        padding: 14px;
+        font-size: 1rem;
+    }
+
+    .profile-container {
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .radio-group {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    /* Info sections */
+    .solving {
+        padding: 1rem;
+        gap: 1rem;
+    }
+    
+    .info-intro {
+        padding: 1.5rem;
+        min-width: 100%;
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+        margin: 1rem auto;
+    }
+
+    .info-intro h1 {
+        font-size: 1.5rem;
+    }
+
+    .info-intro p {
+        font-size: 1rem;
+    }
+
+    /* Notes */
     .entry-header {
         flex-direction: column;
         align-items: flex-start;
@@ -2579,5 +2992,636 @@ footer {
 
     .entry-date {
         margin-top: 0.5rem;
+    }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+    body {
+        padding-bottom: 60px;
+    }
+
+    /* Navbar */
+    .navbar {
+        padding: 8px 15px;
+    }
+
+    .logo {
+        width: 50px;
+    }
+
+    .logo-section h1 {
+        font-size: 1.2rem;
+    }
+
+    .dropdown-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+
+    .dropdown-content {
+        min-width: 160px;
+    }
+
+    .dropdown-content a {
+        font-size: 14px;
+        padding: 10px 14px;
+    }
+
+    /* Stats */
+    .stats {
+        font-size: 18px;
+    }
+
+    .stat {
+        padding: 4%;
+    }
+
+    /* Journal - single column on small phones */
+    .journal {
+        gap: 10px;
+        padding: 0 5px;
+    }
+
+    .journal img {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* Calendar */
+    .calendar-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .calendar-header h2 {
+        font-size: 18px;
+    }
+
+    .calendar-grid {
+        gap: 4px;
+    }
+
+    .day-header {
+        font-size: 11px;
+        padding: 8px 4px;
+    }
+
+    .day-cell {
+        min-height: 50px;
+        padding: 2px;
+        font-size: 12px;
+    }
+
+    .day-number {
+        font-size: 11px;
+    }
+
+    .event {
+        font-size: 9px;
+        padding: 2px 3px;
+    }
+
+    /* Gallery - Single column on small phones */
+    .photo-card {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    /* Bar Loading Game - Critical fixes */
+    #start-screen {
+        padding: 20px 15px;
+        margin: 20px auto;
+    }
+
+    #start-screen h2 {
+        font-size: 1.3rem;
+    }
+
+    .bar-selection {
+        gap: 10px;
+    }
+
+    .bar-selection label {
+        padding: 12px;
+        font-size: 14px;
+        display: block;
+        width: 100%;
+    }
+
+    #gameStart button {
+        padding: 12px 25px;
+        font-size: 16px;
+        width: 100%;
+    }
+
+    #gameHeader {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .target-display {
+        padding: 15px;
+    }
+
+    .target-weight {
+        font-size: 32px;
+    }
+
+    .barbell-area {
+        padding: 20px 10px;
+        overflow-x: auto;
+    }
+
+    .barbell {
+        min-height: 150px;
+        min-width: 100%;
+        padding: 10px 0;
+    }
+
+    .sleeve {
+        min-width: 35px;
+        height: 150px;
+    }
+
+    .shaft {
+        width: 140px;
+        min-width: 140px;
+        height: 10px;
+        font-size: 8px;
+        margin: 0 3px;
+    }
+
+    .collar {
+        width: 12px;
+        height: 12px;
+        flex-shrink: 0;
+    }
+
+    #plateContainer {
+        padding: 1%;
+        min-height: 250px;
+        gap: 1%;
+    }
+
+    .plateCategory {
+        gap: 5px;
+    }
+
+    .plateCategory img {
+        max-width: 50px;
+    }
+
+    #bigPlates img {
+        width: 50px;
+    }
+
+    #whiteChange img {
+        width: 35px;
+    }
+
+    #redChange img {
+        width: 30px;
+    }
+
+    #blueChange img {
+        width: 28px;
+    }
+
+    #yellowChange img {
+        width: 26px;
+    }
+
+    #greenChange img {
+        width: 24px;
+    }
+
+    #whiteChangeSmall img {
+        width: 20px;
+    }
+
+    #bumperPlates img {
+        width: 50px;
+    }
+
+    #collarPlates img {
+        width: 22px;
+    }
+
+    /* Plate sizes - pixel widths for mobile so they're actually visible */
+    .red-plate {
+        width: 15px;
+        aspect-ratio: 1/8;
+    }
+    
+    .blue-plate {
+        width: 15px;
+        aspect-ratio: 1/8;
+    }
+    
+    .yellow-plate {
+        width: 15px;
+        aspect-ratio: 1/8;
+    }
+    
+    .green-plate {
+        width: 15px;
+        aspect-ratio: 1/8;
+    }
+    
+    .white-plate {
+        width: 15px;
+        aspect-ratio: 1/8;
+    }
+    
+    .change-white-plate {
+        width: 8px;
+        aspect-ratio: 1/9;
+    }
+    
+    .change-red-plate {
+        width: 10px;
+        aspect-ratio: 1/8.5;
+    }
+    
+    .change-blue-plate {
+        width: 12px;
+        aspect-ratio: 1/7.25;
+    }
+    
+    .change-yellow-plate {
+        width: 14px;
+        aspect-ratio: 1/6.15;
+    }
+    
+    .change-green-plate {
+        width: 16px;
+        aspect-ratio: 1/5.1;
+    }
+    
+    .change-white-tiny-plate {
+        width: 18px;
+        aspect-ratio: 1/4.05;
+    }
+    
+    .bumper-white-plate {
+        width: 24px;
+        aspect-ratio: 1/4;
+    }
+    
+    .bumper-red-plate {
+        width: 24px;
+        aspect-ratio: 1/4;
+    }
+    
+    .collar-plate {
+        width: 24px;
+        aspect-ratio: 1/2;
+    }
+
+    #submitButton {
+        padding: 12px 20px;
+        font-size: 16px;
+    }
+
+    .modal-content {
+        padding: 20px;
+    }
+
+    #feedback-title {
+        font-size: 22px;
+    }
+
+    #feedback-message {
+        font-size: 16px;
+    }
+
+    .modal-btn {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+
+    .answer-content {
+        padding: 20px 15px;
+    }
+
+    #answer-text {
+        font-size: 16px;
+    }
+
+    #answer-goal-weight {
+        font-size: 20px;
+    }
+
+    /* Programming */
+    .day {
+        padding: 0.5rem;
+        font-size: 12px;
+    }
+
+    .exercise {
+        font-size: 11px;
+    }
+
+    .exercise h2 {
+        font-size: 12px;
+    }
+
+    #customProgram {
+        padding: 1rem;
+    }
+
+    .day-container,
+    .exercise-container {
+        padding: 0.75rem;
+    }
+
+    .set-row {
+        gap: 0.5rem;
+        padding: 0.5rem;
+    }
+
+    .set-row input[type="number"] {
+        width: 60px;
+    }
+
+    /* Buttons */
+    .main-btn,
+    .program-card button,
+    .remove-btn,
+    .addToProgram {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
+    #addDayBtn,
+    .generateProgram {
+        padding: 0.6rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    /* Profile */
+    .profile {
+        padding: 15px;
+        margin: 15px 5px;
+        font-size: 18px;
+    }
+
+    .profile label {
+        font-size: 0.85rem;
+    }
+
+    .profile input[type="text"] {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .profile button {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+
+    .profile-pic img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .profile-info {
+        font-size: 1.1rem;
+    }
+
+    .profile-info h2 {
+        font-size: 1.6rem;
+    }
+
+    /* Tables */
+    #prTable,
+    #percentages {
+        font-size: 0.65rem;
+    }
+
+    #prTable th,
+    #prTable td,
+    #percentages th,
+    #percentages td {
+        padding: 0.4rem;
+    }
+
+    /* Info sections */
+    .info-intro h1 {
+        font-size: 1.3rem;
+    }
+
+    .info-intro h2 {
+        font-size: 1.2rem;
+    }
+
+    .info-intro p {
+        font-size: 0.95rem;
+    }
+
+    .info-intro {
+        padding: 1rem;
+        width: calc(100% - 20px);
+        max-width: calc(100% - 20px);
+        margin: 1rem 10px;
+        box-sizing: border-box;
+    }
+
+    /* Library */
+    .library-container {
+        position: relative;
+        overflow-x: hidden;
+    }
+
+    .library-nav {
+        padding: 15px;
+        width: calc(100% - 30px);
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .library-nav h3 {
+        font-size: 1.1rem;
+    }
+
+    .library-nav li {
+        font-size: 0.9rem;
+    }
+
+    .library-content {
+        padding: 10px;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+
+    #videoDescription {
+        font-size: 0.9rem;
+        max-width: 100%;
+        width: calc(100% - 20px) !important;
+        padding: 0 10px;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    #videoDescription iframe,
+    #videoDescription video,
+    #videoDescription embed,
+    #videoDescription object {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 16/9;
+    }
+
+    #videoDescription * {
+        max-width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    /* Goals */
+    .card-header h3 {
+        font-size: 1.2rem;
+    }
+
+    .goal-metric,
+    .goal-date {
+        font-size: 0.95rem;
+    }
+
+    /* Notes */
+    .new-entry-section {
+        padding: 1rem;
+    }
+
+    .entry-card-notes {
+        padding: 1rem;
+    }
+
+    .entry-title {
+        font-size: 1.1rem;
+    }
+}
+
+/* Extra small phones */
+@media (max-width: 360px) {
+    .navbar {
+        padding: 5px 10px;
+    }
+
+    .logo {
+        width: 40px;
+    }
+
+    .dropdown-btn {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+
+    .barbell-area {
+        padding: 20px 5px;
+        overflow-x: auto;
+    }
+
+    .shaft {
+        width: 110px;
+        min-width: 110px;
+        height: 8px;
+    }
+
+    .sleeve {
+        min-width: 28px;
+        height: 130px;
+    }
+
+    .collar {
+        width: 10px;
+        height: 10px;
+    }
+
+    .plateCategory img {
+        max-width: 45px;
+    }
+
+    #bigPlates img {
+        width: 45px;
+    }
+
+    #bumperPlates img {
+        width: 45px;
+    }
+
+    /* Plate sizes - pixel widths for small mobile */
+    .red-plate {
+        width: 12px;
+        aspect-ratio: 1/8;
+    }
+    
+    .blue-plate {
+        width: 12px;
+        aspect-ratio: 1/8;
+    }
+    
+    .yellow-plate {
+        width: 12px;
+        aspect-ratio: 1/8;
+    }
+    
+    .green-plate {
+        width: 12px;
+        aspect-ratio: 1/8;
+    }
+    
+    .white-plate {
+        width: 12px;
+        aspect-ratio: 1/8;
+    }
+    
+    .change-white-plate {
+        width: 7px;
+        aspect-ratio: 1/9;
+    }
+    
+    .change-red-plate {
+        width: 8px;
+        aspect-ratio: 1/8.5;
+    }
+    
+    .change-blue-plate {
+        width: 10px;
+        aspect-ratio: 1/7.25;
+    }
+    
+    .change-yellow-plate {
+        width: 11px;
+        aspect-ratio: 1/6.15;
+    }
+    
+    .change-green-plate {
+        width: 13px;
+        aspect-ratio: 1/5.1;
+    }
+    
+    .change-white-tiny-plate {
+        width: 15px;
+        aspect-ratio: 1/4.05;
+    }
+    
+    .bumper-white-plate {
+        width: 22px;
+        aspect-ratio: 1/4;
+    }
+    
+    .bumper-red-plate {
+        width: 22px;
+        aspect-ratio: 1/4;
+    }
+    
+    .collar-plate {
+        width: 22px;
+        aspect-ratio: 1/2;
     }
 }
