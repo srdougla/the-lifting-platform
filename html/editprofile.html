@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo-section">
+            <img src="../images/liftinglogo.jpg" alt="Logo" class="logo">
+            <h1>The Lifting Platform</h1>
+        </div>
+
+        <nav class="menu">
+            <div class="dropdown">
+                <button class="dropdown-btn">Menu ▼</button>
+                <div class="dropdown-content">
+                    <a href="../index.html">Home</a>
+                    <a href="journal.html">My Journal</a>
+                    <a href="program.html">Programming</a>
+                    <a href="bar.html">Loading Game</a>
+                    <a href="info.html">Percentage Calculator</a>
+                    <a href="technique.html">Lift Library</a>
+                    <a href="profile.html">Profile</a>
+                </div>
+            </div>
+        </nav>       
+    </header>
+
+    <h1 style="text-align: center">Your Profile</h1>
+
+    <form class="profile" id="profile">
+        
+        <fieldset>
+            <legend>Name</legend>
+            <input type="text" name="firstName" id="firstName" placeholder="First Name" required/>
+            <input type="text" name="lastName" id="lastName" placeholder="Last Name"/>
+        </fieldset>
+        
+        <br><br>
+
+        <fieldset>
+            <legend>Age</legend>
+            <input type="number" name="age" id="age" required/>
+        </fieldset>
+
+        <br><br>
+
+        <fieldset>
+            <legend>Weight</legend>
+            <input type="number" name="weight" id="weight" step="any" required/>
+            <label for="lbs">LBS</label>
+            <input type="radio" id="lbs" name="system" value="lbs" required>
+            <label for="kgs">KGS</label>
+            <input type="radio" id="kgs" name="system" value="kgs" required>
+        </fieldset>
+        
+        <fieldset style="display: flex">
+            <legend>Gender</legend>
+            <label for="male">Male</label>
+            <input type="radio" id="male" name="gender" value="Male" required>
+            <label for="female">Female</label>
+            <input type="radio" id="female" name="gender" value="Female" required>
+        </fieldset>
+
+        <fieldset>
+            <legend>Current PRs</legend>
+            <p style="font-size: 16px"><em>Optional. Enter if you know these numbers.</em></p>
+            <div style="display: flex; gap: 8px; padding: 6px">
+                <label for="snatchpr">Snatch:</label>
+                <input type="number" name="snatchpr" id="snatchpr" step="any">
+            </div>
+
+            <div style="display: flex; gap: 8px; padding: 6px">
+                <label for="candjpr">Clean & Jerk:</label>
+                <input type="number" name="candjpr" id="candjpr" step="any">
+            </div>
+
+            <div style="display: flex; gap: 8px; padding: 6px">
+                <label for="backsquatpr">Back Squat:</label>
+                <input type="number" name="backsquatpr" id="backsquatpr" step="any">
+            </div>
+
+            <div style="display: flex; gap: 8px; padding: 6px">
+                <label for="frontsquatpr">Front Squat:</label>
+                <input type="number" name="frontsquatpr" id="frontsquatpr" step="any">
+            </div>
+            
+            <div style="display: flex; gap: 8px; padding: 6px">
+                <label for="benchpr">Bench:</label>
+                <input type="number" name="benchpr" id="benchpr" step="any">
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Profile Picture</legend>
+            <input type="file" id="profilePic" name="profilePic" accept="image/*">
+        </fieldset>
+
+        <br><br>
+        <button type="Submit">Save Changes</button>
+
+    </form>
+
+    <footer style="text-align:center"><em>The Lifting Platform. Est. 2025.</em></footer>
+
+    <script src="../js/profile.js"></script>
+    <script src="../js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo-section">
+            <img src="../images/liftinglogo.jpg" alt="Logo" class="logo">
+            <h1>The Lifting Platform</h1>
+        </div>
+
+        <nav class="menu">
+            <div class="dropdown">
+                <button class="dropdown-btn">Menu ▼</button>
+                <div class="dropdown-content">
+                    <a href="../index.html">Home</a>
+                    <a href="journal.html">My Journal</a>
+                    <a href="program.html">Programming</a>
+                    <a href="bar.html">Loading Game</a>
+                    <a href="info.html">Percentage Calculator</a>
+                    <a href="technique.html">Lift Library</a>
+                    <a href="profile.html">Profile</a>
+                </div>
+            </div>
+        </nav>      
+    </header>
+
+    <div class="container">
+        <h1>My Photo Gallery</h1>
+
+        <div class="upload-section">
+            <label for="photoInput" class="upload-label">+ Upload Photos</label>
+            <input type="file" id="photoInput" accept="image/*" multiple>
+            <input type="text" id="captionInput" class="caption-input" placeholder="Add an optional caption.">
+        </div>
+
+        <div class="gallery" id="gallery">
+            <div class="photo-card" data-photo-id="1">
+                <button class="delete-btn" onclick="deletePhoto('1')">x</button>
+                <img src="../images/img1.jpg">
+                <div class="photo-info">
+                    <div class="photo-date">November 3, 2024</div>
+                    <div class="photo-caption">First meet ever!</div>
+                </div>
+            </div>
+
+            <div class="photo-card" data-photo-id="2">
+                <button class="delete-btn" onclick="deletePhoto('2')">x</button>
+                <img src="../images/img2.png">
+                <div class="photo-info">
+                    <div class="photo-date">November 15, 2024</div>
+                    <div class="photo-caption">With the best coaches ever</div>
+                </div>
+            </div>
+
+            <div class="photo-card" data-photo-id="3">
+                <button class="delete-btn" onclick="deletePhoto('3')">x</button>
+                <img src="../images/img3.jpg">
+                <div class="photo-info">
+                    <div class="photo-date">November 3, 2024</div>
+                    <div class="photo-caption">60 kg PR!</div>
+                </div>
+            </div>
+
+            <div class="photo-card" data-photo-id="4">
+                <button class="delete-btn" onclick="deletePhoto('4')">x</button>
+                <img src="../images/img4.JPG">
+                <div class="photo-info">
+                    <div class="photo-date">November 15, 2024</div>
+                    <div class="photo-caption">Podiumed at the RX Open!!!</div>
+                </div>
+            </div>
+
+
+            
+        </div>
+    </div>
+        
+    <footer style="text-align:center"><em>The Lifting Platform. Est. 2025.</em></footer>
+
+    <script src="../js/gallery.js"></script>
+
+</body>
+</html>

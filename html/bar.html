@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading Game</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body style="background-color: lightblue;">
+    <header class="navbar">
+        <div class="logo-section">
+            <img src="../images/liftinglogo.jpg" alt="Logo" class="logo">
+            <h1>The Lifting Platform</h1>
+        </div>
+
+        <nav class="menu">
+            <div class="dropdown">
+                <button class="dropdown-btn">Menu ▼</button>
+                <div class="dropdown-content">
+                    <a href="../index.html">Home</a>
+                    <a href="journal.html">My Journal</a>
+                    <a href="program.html">Programming</a>
+                    <a href="bar.html">Loading Game</a>
+                    <a href="info.html">Percentage Calculator</a>
+                    <a href="technique.html">Lift Library</a>
+                    <a href="profile.html">Profile</a>
+                </div>
+            </div>
+        </nav>      
+    </header>
+    
+    <!-- START SCREEN -->
+    <div id="start-screen">
+        <h1>Barbell Builder</h1>
+        <form id="gameStart" name="gameStart">
+            <fieldset>
+                <h5>Select Your Bar:</h5>
+                <label for="womens">
+                    <input type="radio" id="womens" name="barWeight" value="15">
+                    Women's Bar (15 kg)
+                </label>
+                <label for="mens">
+                    <input type="radio" id="mens" name="barWeight" value="20">
+                    Men's Bar (20 kg)
+                </label>
+                <button type="submit">Play!</button>
+            </fieldset>
+        </form>
+    </div>
+
+    <!-- GAME CONTAINER (hidden initially) -->
+    <div id="game-container" style="display: none;">
+        <h1 style="text-align: center;">Barbell Builder</h1>
+        <div id="gameHeader">
+            <h3>Goal Weight: </h3>
+            <h3 id="goal">none</h3>
+            <h3>Current Weight: </h3>
+            <h3 id="current">none</h3>
+        </div>
+
+        <div class="barbell-area">
+            <div class="barbell">
+                <div class="sleeve" id="left-sleeve"></div>
+                <div class="collar"></div>
+                <div class="shaft"></div>
+                <div class="collar"></div>
+                <div class="sleeve" id="right-sleeve"></div>
+            </div>
+        </div>
+
+        <div id="plateContainer">
+            <div id="plateRack">
+                <h2>PLATE RACK</h2>
+                <p>Click on a plate to add it to the barbell. Click on it from the barbell to remove it.</p>
+            </div>
+            <div id="bigPlates" class="plateCategory">
+                <div id="redPlates">
+                    <img src="../images/25s.png" onclick="addWeight(25, 'red25')">
+                </div>
+                <div id="bluePlates">
+                    <img src="../images/20s.png" onclick="addWeight(20, 'blue20')">
+                </div>
+                <div id="yellowPlates">
+                    <img src="../images/15s.png" onclick="addWeight(15, 'yellow15')">
+                </div>
+                <div id="greenPlates">
+                    <img src="../images/10s.png" onclick="addWeight(10, 'green10')">
+                </div>
+            </div>
+            <div id="changePlates" class="plateCategory">
+                <div id="whiteChange">
+                    <img src="../images/5s.png" onclick="addWeight(5, 'change5')">
+                </div>
+                <div id="redChange">
+                    <img src="../images/2.5s.png" onclick="addWeight(2.5, 'change2.5')">
+                </div>
+                <div id="blueChange">
+                    <img src="../images/2s.png" onclick="addWeight(2, 'change2')">
+                </div>
+                <div id="yellowChange">
+                    <img src="../images/1.5s.png" onclick="addWeight(1.5, 'change1.5')">
+                </div>
+                <div id="greenChange">
+                    <img src="../images/1s.png" onclick="addWeight(1, 'change1')">
+                </div>
+                <div id="whiteChangeSmall">
+                    <img src="../images/0.5s.png" onclick="addWeight(0.5, 'change0.5')">
+                </div>
+            </div>
+            <div id="bumperPlates" class="plateCategory">
+                <div id="whiteBumper">
+                    <img src="../images/5bumpers.png" onclick="addWeight(5, 'whiteBumper')">
+                </div>
+                <div id="redBumper">
+                    <img src="../images/2.5bumpers.png" onclick="addWeight(2.5, 'redBumper')">
+                </div>
+            </div>
+            <div id="collarPlates" class="plateCategory">
+                <div id="collars">
+                    <img src="../images/collar.png" onclick="addWeight(2.5, 'collars')">
+                </div>
+            </div>
+        </div>
+
+        <div id="submitTotal">
+            <button type="button" id="submitButton" onclick="checkWeight()">Bar Complete!</button>
+        </div>
+
+        <!-- Feedback Modal -->
+        <div id="feedback-modal" style="display: none;">
+            <div class="modal-content">
+                <h2 id="feedback-title"></h2>
+                <p id="feedback-message"></p>
+                <div class="modal-buttons">
+                    <button id="try-again-btn" class="modal-btn">Try Again</button>
+                    <button id="reveal-answer-btn" class="modal-btn">Reveal Answer</button>
+                    <button id="next-round-btn" class="modal-btn" style="display: none;">Next Round</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Answer Display -->
+        <div id="answer-display" style="display: none;">
+            <div class="answer-content">
+                <h2>Correct Answer</h2>
+                <p id="answer-text">Goal Weight: <span id="answer-goal-weight"></span> kg</p>
+                
+                <!-- Visual Barbell Answer -->
+                <div class="barbell-area">
+                    <div class="barbell">
+                        <div class="sleeve" id="answer-left-sleeve"></div>
+                        <div class="collar"></div>
+                        <div class="shaft"></div>
+                        <div class="collar"></div>
+                        <div class="sleeve" id="answer-right-sleeve"></div>
+                    </div>
+                </div>
+                
+                <div id="answer-plate-list">
+                    <h3>Plates per side:</h3>
+                    <ul id="plate-breakdown"></ul>
+                </div>
+                
+                <button id="play-again-btn" class="modal-btn">Play Again</button>
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="../js/bar.js"></script>
+</body>
+</html>

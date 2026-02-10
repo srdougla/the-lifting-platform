@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo-section">
+            <img src="images/liftinglogo.jpg" alt="Logo" class="logo">
+            <h1>The Lifting Platform</h1>
+        </div>
+
+        <nav class="menu">
+            <div class="dropdown">
+                <button class="dropdown-btn">Menu ▼</button>
+                <div class="dropdown-content">
+                    <a href="index.html">Home</a>
+                    <a href="html/journal.html">My Journal</a>
+                    <a href="html/program.html">Programming</a>
+                    <a href="html/bar.html">Loading Game</a>
+                    <a href="html/info.html">Percentage Calculator</a>
+                    <a href="html/technique.html">Lift Library</a>
+                    <a href="html/profile.html">Profile</a>
+                </div>
+            </div>
+        </nav>    
+    </header>
+
+    <h2 class="greeting" id="greeting">Hi!</h2>
+    <h1 style="text-align: center; color:darkblue">Welcome to the Lifting Platform!</h1>
+
+    <div class="stats">
+        <div class="stat" id="stat1">Snatch PR:</div>
+        <div class="stat" id="stat2">Clean & Jerk PR:</div>
+        <div class="stat" id="stat3">Total:</div>
+    </div>
+
+    <br><br>
+
+    <div class="calendar-container">
+        <div class="calendar-header">
+            <h2 id="monthYear"></h2>
+            <div class="calendar-nav">
+                <button id="prevMonth"><< Previous Month</button>
+                <button id="today">Today</button>
+                <button id="nextMonth">Next Month >></button>
+            </div>
+        </div>
+        <div class="calendar-grid" id="calendar"></div>
+    </div>
+
+    <div class="modal" id="eventModal">
+        <div class="modal-content">
+            <h3>Add Event</h3>
+            <input type="text" id="eventInput" placeholder="Enter event"/>
+            <div class="modal-buttons">
+                <button class="btn-secondary" id="deleteButton">Delete Event</button>
+                <button class="btn-primary" id="addButton">Add Event</button>
+            </div>
+
+        </div>
+    </div>
+
+    <br><br>
+
+    <div style="border-radius: 15px; font-size: 22px; background: linear-gradient(135deg, #ff0000 0%, #f55959 100%);; color: white; padding:2%; width: 90%; margin:0 auto;">
+        <p style="text-align: center"><em>Weightlifting is a sport without mercy, it is very tough to make progress. It is not really fun like football where you are part of a team. 22 guys are chasing a ball and you don’t even notice the effort you are putting in. In weightlifting on the other hand, every time you touch the bar you realise that you are always alone in weightlifting, the weights are getting heavier and heavier, everything hurts, it is simply a very long journey until it gets to be fun.</em></p>
+        <p style="text-align: right"><em>- Matthias Steiner</em></p>
+    </div>
+    
+    <br><br>
+
+    <footer style="text-align:center"><em>The Lifting Platform. Est. 2025.</em></footer>
+
+    <script src="js/index.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>

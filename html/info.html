@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo-section">
+            <img src="../images/liftinglogo.jpg" alt="Logo" class="logo">
+            <h1>The Lifting Platform</h1>
+        </div>
+
+        <nav class="menu">
+            <div class="dropdown">
+                <button class="dropdown-btn">Menu ▼</button>
+                <div class="dropdown-content">
+                    <a href="../index.html">Home</a>
+                    <a href="journal.html">My Journal</a>
+                    <a href="program.html">Programming</a>
+                    <a href="bar.html">Loading Game</a>
+                    <a href="info.html">Percentage Calculator</a>
+                    <a href="technique.html">Lift Library</a>
+                    <a href="profile.html">Profile</a>
+                </div>
+            </div>
+        </nav>      
+    </header>
+
+    <div class="info-intro" style="text-align: center; color: darkblue">
+        <h1>Your Percentages</h1>
+        <p>Here you can view your percentages for different types of lifts.</p>
+        <p>You can also solve for a certain percentage or weight.</p>
+    </div>
+
+    <table id="percentages" border=1>
+        <thead>
+            <tr>
+                <th>Lift</th>
+                <th>50%</th>
+                <th>55%</th>
+                <th>60%</th>
+                <th>65%</th>
+                <th>70%</th>
+                <th>75%</th>
+                <th>80%</th>
+                <th>85%</th>
+                <th>90%</th>
+                <th>95%</th>
+                <th>100%</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Snatch</td>
+                <td id="snatch1"></td>
+                <td id="snatch2"></td>
+                <td id="snatch3"></td>
+                <td id="snatch4"></td>
+                <td id="snatch5"></td>
+                <td id="snatch6"></td>
+                <td id="snatch7"></td>
+                <td id="snatch8"></td>
+                <td id="snatch9"></td>
+                <td id="snatch10"></td>
+                <td id="snatch11"></td>
+            </tr>
+            <tr>
+                <td>Clean and Jerk</td>
+                <td id="cj1"></td>
+                <td id="cj2"></td>
+                <td id="cj3"></td>
+                <td id="cj4"></td>
+                <td id="cj5"></td>
+                <td id="cj6"></td>
+                <td id="cj7"></td>
+                <td id="cj8"></td>
+                <td id="cj9"></td>
+                <td id="cj10"></td>
+                <td id="cj11"></td>
+            </tr>
+            <tr>
+                <td>Back Squat</td>
+                <td id="bs1"></td>
+                <td id="bs2"></td>
+                <td id="bs3"></td>
+                <td id="bs4"></td>
+                <td id="bs5"></td>
+                <td id="bs6"></td>
+                <td id="bs7"></td>
+                <td id="bs8"></td>
+                <td id="bs9"></td>
+                <td id="bs10"></td>
+                <td id="bs11"></td>
+            </tr>
+            <tr>
+                <td>Front Squat</td>
+                <td id="fs1"></td>
+                <td id="fs2"></td>
+                <td id="fs3"></td>
+                <td id="fs4"></td>
+                <td id="fs5"></td>
+                <td id="fs6"></td>
+                <td id="fs7"></td>
+                <td id="fs8"></td>
+                <td id="fs9"></td>
+                <td id="fs10"></td>
+                <td id="fs11"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="solving" style="display: flex; flex-wrap: wrap">
+        <div class="info-intro">
+            <h2>Solve for a weight</h2>
+            <h4>Enter the total weight, and the percent you have, to find out how much weight that percent is.</h4>
+            <label for="totalGiven1">Total: </label>
+            <input type="number" id="totalGiven1" name="totalGiven1">
+            <label for="percentGiven">Percent: </label>
+            <input type="number" id="percentGiven" name="percentGiven" placeholder="Enter 70 for 70%, e.g.">
+        </div>
+
+
+        <div class="info-intro">
+            <h2>Solve for a percentage</h2>
+            <h4>Enter the total weight, and the portion of the weight, to find out what percent of your total it is.</h4>
+            <label for="totalGiven2">Total: </label>
+            <input type="number" id="totalGiven2" name="totalGiven2">
+            <label for="portionGiven">Portion: </label>
+            <input type="number" id="portionGiven" name="portionGiven">
+        </div>
+        </div>
+    </div>
+    
+    <footer style="text-align:center"><em>The Lifting Platform. Est. 2025.</em></footer>
+
+    <script src="../js/info.js"></script>
+</body>
+</html>

@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo-section">
+            <img src="../images/liftinglogo.jpg" alt="Logo" class="logo">
+            <h1>The Lifting Platform</h1>
+        </div>
+
+        <nav class="menu">
+            <div class="dropdown">
+                <button class="dropdown-btn">Menu ▼</button>
+                <div class="dropdown-content">
+                    <a href="../index.html">Home</a>
+                    <a href="journal.html">My Journal</a>
+                    <a href="program.html">Programming</a>
+                    <a href="bar.html">Loading Game</a>
+                    <a href="info.html">Percentage Calculator</a>
+                    <a href="technique.html">Lift Library</a>
+                    <a href="profile.html">Profile</a>
+                </div>
+            </div>
+        </nav>     
+    </header>
+
+    <!-- START SCREEN -->
+    <div id="start-screen">
+        <h1>Programming</h1>
+        <p>Note: this is a basic program not tailored to any specific athlete. If possible, it's best to find a coach that can create a program for you and guide you through it.
+            Otherwise, this example provides good structure for your workouts leading up to a competition. Remember: <em>listen to your body</em> and <strong>don't get injured</strong>!
+        </p>
+        
+        <div style="text-align: center; margin: 2rem 0;">
+            <button class="main-btn" onclick="showSampleProgram()">View Sample Program</button>
+            <button class="main-btn" onclick="showCreateProgram()">Input My Own Program</button>
+            <button class="main-btn" onclick="showMyPrograms()">View/Edit My Programs</button>
+        </div>
+    </div>
+
+    <!-- CREATE PROGRAM SCREEN -->
+    <div id="create-screen" style="display: none;">
+        <h1>Create Your Program</h1>
+        <button id="back-btn" onclick="backToStart()">← Back</button>
+        
+        <form id="customProgram">
+            <label for="programTitle">Program Title: </label>
+            <input type="text" id="programTitle" name="programTitle" required>
+            <br>
+            <label for="weekNum">Number of Weeks: </label>
+            <input type="number" id="weekNum" name="weekNum" min="1" max="52" required>
+            <button type="button" class="main-btn" onclick="generateWeekStructure()" style="display: block; margin: 1rem 0;">Create Week Structure</button>
+
+            <div id="weeksContainer"></div>
+            
+            <button type="button" class="generateProgram" onclick="generateProgram()" style="display: none;">Save Program</button>
+        </form>
+    </div>
+
+    <!-- MY PROGRAMS SCREEN -->
+    <div id="my-programs-screen" style="display: none;">
+        <h1>My Programs</h1>
+        <button id="back-btn" onclick="backToStart()">← Back</button>
+        
+        <div id="programs-list"></div>
+    </div>
+
+    <!-- SAMPLE PROGRAM SCREEN -->
+    <div id="sample-program-screen" style="display: none;">
+        <h1>Sample 8-Week Program</h1>
+        <button id="back-btn" onclick="backToStart()">← Back</button>
+        
+        <div class="program" id="eightwk">
+            <div class="week">
+                <h1>Week 1</h1>
+                <div class="day">
+                    <h1> DAY 1</h1>
+                    <div class = "exercise">
+                        <h2> No foot Snatch</h2>
+                        <h2>(5 x 3)</h2>
+                    </div>
+                    <div class = "exercise">
+                        <h2>High Hang Snatch + Low Hang Snatch + Snatch</h2>
+                        <h2>60 (2 x 1)</h2>
+                        <h2>65 (2 x 1)</h2>
+                        <h2>70 (2 x 1)</h2>
+                    </div>
+                    <div class = "exercise">
+                        <h2>Jerk Balance (light to mod weight)</h2>
+                        <h2>(3 x 3)</h2>
+                    </div>
+                    <div class = "exercise">
+                        <h2>Split Jerk</h2>
+                        <h2>60 (2 x 4)</h2>
+                        <h2>65 (2 x 4)</h2>
+                        <h2>70 (2 x 3)</h2>
+                        <h2>(75 x 3)</h2>
+                    </div>
+                    <div class = "exercise">
+                        <h2>Front Squat</h2>
+                        <h2>(60 x 5)</h2>
+                        <h2>(65 x 5)</h2>
+                        <h2>70 (2 x 4)</h2>
+                        <h2>75 (2 x 3)</h2>
+                        <h2>(80 x 3)</h2>
+                    </div>
+                    <div class = "exercise">
+                        <h2>Snatch High Pull</h2>
+                        <h2>80 (3 x 3)</h2>
+                        <h2>85 (3 x 3)</h2>
+                    </div>
+                    <div class = "exercise">
+                        <h2>ACCESSORIES (3 Rounds)</h2>
+                        <h2>10 Jumps</h2>
+                        <h2>10 Push Ups</h2>
+                        <h2>1 min Plank</h2>
+                    </div>
+                </div>
+                <div class="day">
+                <h1> DAY 2</h1>
+                    <div class = "exercise">
+                        <h2>Snatch balance</h2>
+                        <h2>(60 x 3)</h2>
+                        <h2>(65 x 3)</h2>
+                        <h2>70 (2 x 3)</h2>
+                        <h2>80 (2 x 3)</h2>
+                        <h2>(83 x 3)</h2>
+                    </div>
+                    <div class = "exercise">
+                        <h2>Block Jerk + Jerk</h2>
+                        <h2>(60 x 3)</h2>
+                        <h2>(65 x 3)</h2>
+                        <h2>70 (2 x 3)</h2>
+                        <h2>(80 x 3)</h2>
+                    </div>
+                    <div class = "exercise">
+                        <h2>Back Squat</h2>
+                        <h2>(60 x 5)</h2>
+                        <h2>(65 x 5)</h2>
+                        <h2>70 (2 x 5)</h2>
+                        <h2>(75 x 4)</h2>
+                        <h2>(80 x 3)</h2>
+                    </div>
+                    <div class = "exercise">
+                        <h2>ACCESSORIES (3 Rounds)</h2>
+                        <h2>10 Bicep Curls</h2>
+                        <h2>10 Tricep Extensions</h2>
+                        <h2>10 Weighted GDH RSV Sit Up</h2>
+                    </div>
+                </div>
+                <div class="day">
+                    <h1> DAY 3</h1>
+                    <div class = "exercise">
+                        <h2>Snatch</h2>
+                        <h2>(60 x 3)</h2>
+                        <h2>(65 x 3)</h2>
+                        <h2>70 (2 x 3)</h2>
+                        <h2>(75 x 2)</h2>
+                    </div>
+                    <div class = "exercise">
+                        <h2>Clean + Jerk</h2>
+                        <h2>(60 x 3)</h2>
+                        <h2>(65 x 3)</h2>
+                        <h2>70 (2 x 3)</h2>
+                        <h2>(75 x 3)</h2>
+                    </div>
+                    <div class = "exercise">
+                        <h2>Front Squat</h2>
+                        <h2>(60 x 4)</h2>
+                        <h2>(65 x 3)</h2>
+                        <h2>(70 x 3)</h2>
+                        <h2>75 (2 x 3)</h2>
+                        <h2>(80 x 3)</h2>
+                    </div>
+                    <div class = "exercise">
+                        <h2>ACCESSORIES (3 Rounds)</h2>
+                        <h2>15 Wrist Curls</h2>
+                        <h2>15 Weighted Calf Raises</h2>
+                        <h2>1 min. Hollow Hold</h2>
+                    </div>
+                </div>
+                <div class="day">
+                    <h1> DAY 4</h1>
+                    <div class = "exercise">
+                        <h2>Snatch</h2>
+                        <h2>(60 x 3)</h2>
+                        <h2>65 (2 x 3)</h2>
+                        <h2>(70 x 3)</h2>
+                        <h2>75 (2 x 3)</h2>
+                        <h2>80 (2 x 3)</h2>
+                    </div>
+                    <div class = "exercise">
+                        <h2>Clean + Jerk</h2>
+                        <h2>(60 x 3)</h2>
+                        <h2>65 (2 x 3)</h2>
+                        <h2>(70 x 3)</h2>
+                        <h2>75 (2 x 3)</h2>
+                        <h2>80 (2 x 3)</h2>
+                    </div>
+                    <div class = "exercise">
+                        <h2>Back Squat</h2>
+                        <h2>(60 x 4)</h2>
+                        <h2>(65 x 4)</h2>
+                        <h2>(70 x 3)</h2>
+                        <h2>75 (2 x 3)</h2>
+                        <h2>80 (2 x 3)</h2>
+                        <h2>85 (2 x 2)</h2>
+                    </div>
+                    <div class = "exercise">
+                        <h2>Snatch Pulls</h2>
+                        <h2>80 (3 x 3)</h2>
+                        <h2>85 (2 x 3)</h2>
+                    </div>
+                    <div class = "exercise">
+                        <h2>ACCESSORIES (3 Rounds)</h2>
+                        <h2>10 Pull Ups</h2>
+                        <h2>1 min. Weighted Planks</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="week">
+                <h1>Week 2</h1>
+                    <div class="day">
+                        <h1> DAY 1</h1>
+                        <div class = "exercise">
+                            <h2>Snatch High Pull + Power Snatch</h2>
+                            <h2>(60 x 2)</h2>
+                            <h2>65 (2 x 2)</h2>
+                            <h2>70 (2 x 2)</h2>
+                            <h2>75 (2 x 2)</h2>
+                        </div>
+                        <div class = "exercise">
+                            <h2>2 Power Clean + 1 Power Jerk</h2>
+                            <h2>(60 x 2)</h2>
+                            <h2>(65 x 2)</h2>
+                            <h2>70 (2 x 2)</h2>
+                            <h2>75 (2 x 2)</h2>
+                            <h2>(80 x 2)</h2>
+                        </div>
+                        <div class = "exercise">
+                            <h2>Back Squat</h2>
+                            <h2>(65 x 5)</h2>
+                            <h2>(70 x 3)</h2>
+                            <h2>(75 x 3)</h2>
+                            <h2>(80 x 3)</h2>
+                            <h2>(85 x 3)</h2>
+                        </div>
+                        <div class = "exercise">
+                            <h2>Panda Pulls</h2>
+                            <h2>85 (3 x 3)</h2>
+                            <h2>(90 x 2)</h2>
+                        </div>
+                        <div class = "exercise">
+                            <h2>ACCESSORIES (3 Rounds)</h2>
+                            <h2>10 Jumps</h2>
+                            <h2>15 Wrist Curls</h2>
+                            <h2>10 Bicep Curls</h2>
+                            <h2>1 min Weighted Plank</h2>
+                        </div>
+                    </div>
+                    <div class="day">
+                        <h1> DAY 2</h1>
+                        <div class = "exercise">
+                            <h2>Panda Pull + High Hang Snatch + Snatch</h2>
+                            <h2>(60 x 2)</h2>
+                            <h2>(65 x 2)</h2>
+                            <h2>(70 x 1)</h2>
+                            <h2>(75 x 1)</h2>
+                            <h2>(80 x 1)</h2>
+                        </div>
+                        <div class = "exercise">
+                            <h2>Tempo Clean + Tall Jerk</h2>
+                            <h2>Bar (5 x 3)</h2>
+                        </div>
+                        <div class = "exercise">
+                            <h2>Front Squat</h2>
+                            <h2>(60 x 6)</h2>
+                            <h2>(65 x 3)</h2>
+                            <h2>(70 x 3)</h2>
+                            <h2>(75 x 3)</h2>
+                        <h2>(80 x 3)</h2>
+                        <h2>(85 x 3)</h2>
+                    </div>
+                    <div class = "exercise">
+                        <h2>ACCESSORIES (3 Rounds)</h2>
+                        <h2>10 Tricep Extension</h2>
+                        <h2>10 DB Flies</h2>
+                        <h2>15 Calf Raises</h2>
+                        <h2>1 min. RVS Bench Plank</h2>
+                    </div>
+                    </div>
+                    <div class="day">
+                        <h1> DAY 3</h1>
+                        <div class = "exercise">
+                            <h2>Tempo Bar Snatch</h2>
+                            <h2>Bar (5 x 3)</h2>
+                        </div>
+                        <div class = "exercise">
+                            <h2>Power Clean + Clean + Jerk + Back Jerk</h2>
+                            <h2>(60 x 2)</h2>
+                            <h2>(65 x 2)</h2>
+                            <h2>70 (2 x 2)</h2>
+                            <h2>75 (2 x 1)</h2>
+                            <h2>(80 x 1)</h2>
+                        </div>
+                        <div class = "exercise">
+                            <h2>Snatch Pull</h2>
+                            <h2>85 (2 x 3)</h2>
+                            <h2>90 (2 x 3)</h2>
+                        </div>
+                        <div class = "exercise">
+                            <h2>ACCESSORIES (3 Rounds)</h2>
+                            <h2>8 Bench Press</h2>
+                            <h2>10 Barbell Rows</h2>
+                            <h2>10 Nordic Hamstring Curl</h2>
+                            <h2>1 min. Hanging Hollow Hold</h2>
+                        </div>
+                    </div>
+                    <div class="day">
+                        <h1> DAY 4</h1>
+                        <div class = "exercise">
+                            <h2>Snatch</h2>
+                            <h2>(60 x 3)</h2>
+                            <h2>(65 x 3)</h2>
+                            <h2>(70 x 2)</h2>
+                            <h2>(75 x 2)</h2>
+                            <h2>80 (2 x 2)</h2>
+                            <h2>(85 x 2)</h2>
+                        </div>
+                        <div class = "exercise">
+                            <h2>Clean + Jerk</h2>
+                            <h2>(60 x 3)</h2>
+                            <h2>(65 x 3)</h2>
+                            <h2>(70 x 2)</h2>
+                            <h2>(75 x 2)</h2>
+                            <h2>80 (2 x 2)</h2>
+                            <h2>(85 x 2)</h2>
+                        </div>
+                        <div class = "exercise">
+                            <h2>Back Squat</h2>
+                            <h2>(60 x 4)</h2>
+                            <h2>(65 x 4)</h2>
+                            <h2>(70 x 3)</h2>
+                            <h2>(75 x 3)</h2>
+                            <h2>(80 x 3)</h2>
+                            <h2>(85 x 2)</h2>
+                            <h2>(90 x 2)</h2>
+                        </div>
+                        <div class = "exercise">
+                            <h2>ACCESSORIES (3 Rounds)</h2>
+                            <h2>10 RVS Wrist Curls</h2>
+                            <h2>10 Push Press</h2>
+                            <h2>1 min. Bicycle Crunches</h2>
+                        </div>
+                    </div>
+                </div>
+            <div class="week">
+                <h1>Week 3</h1>
+                <div class="day">
+                    <h1>DAY 1</h1>
+                    <div class="exercise">
+                        <h2>Power Snatch</h2>
+                        <h2>(60 x 3)</h2>
+                        <h2>(65 x 3)</h2>
+                        <h2>(70 x 3)</h2>
+                        <h2>75 (2 x 3)</h2>
+                        <h2>80 (2 x 3)</h2>
+                        <h2>(83 x 3)</h2>
+                    </div>
+                    <div class="exercise">
+                        <h2>Power Clean + Power Jerk</h2>
+                        <h2>(60 x 3)</h2>
+                        <h2>(65 x 3)</h2>
+                        <h2>(70 x 3)</h2>
+                        <h2>75 (2 x 3)</h2>
+                        <h2>80 (2 x 3)</h2>
+                        <h2>(83 x 3)</h2>
+                    </div>
+                    <div class="exercise">
+                        <h2>Back Squat</h2>
+                        <h2>(60 x 6)</h2>
+                        <h2>(65 x 5)</h2>
+                        <h2>(70 x 3)</h2>
+                        <h2>(75 x 3)</h2>
+                        <h2>80 (2 x 3)</h2>
+                        <h2>(83 x 3)</h2>
+                    </div>
+                    <div class="exercise">
+                        <h2>Panda Pulls</h2>
+                        <h2>85 (3 x 3)</h2>
+                        <h2>(90 x 3)</h2>
+                        <h2>(90 x 2)</h2>
+                    </div>
+                    <div class="exercise">
+                        <h2>ACCESSORIES (3 Rounds)</h2>
+                        <h2>10 Bicep Curls</h2>
+                        <h2>10 Bent Over Flies</h2>
+                        <h2>10 Depth Jumps</h2>
+                        <h2>10 Hanging Crunch</h2>
+                    </div>
+                </div>
+            <div class="day">
+                <h1>DAY 2</h1>
+                <div class="exercise">
+                    <h2>Dip Snatches</h2>
+                    <h2>(60 x 2)</h2>
+                    <h2>(65 x 3)</h2>
+                    <h2>(70 x 3)</h2>
+                    <h2>(75 x 3)</h2>
+                    <h2>(80 x 2)</h2>
+                </div>
+                <div class="exercise">
+                    <h2>Clean + 2 Jerk</h2>
+                    <h2>(65 x 3)</h2>
+                    <h2>(70 x 2)</h2>
+                    <h2>(75 x 2)</h2>
+                    <h2>(80 x 2)</h2>
+                </div>
+                <div class="exercise">
+                    <h2>Front Squat</h2>
+                    <h2>(60 x 6)</h2>
+                    <h2>(65 x 5)</h2>
+                    <h2>(70 x 4)</h2>
+                    <h2>(75 x 3)</h2>
+                    <h2>80 (2 x 3)</h2>
+                    <h2>(83 x 3)</h2>
+                </div>
+                <div class="exercise">
+                    <h2>ACCESSORIES (3 Rounds)</h2>
+                    <h2>10 Tricep Extensions</h2>
+                    <h2>15 Wrist Curls</h2>
+                    <h2>10 DB Bench</h2>
+                    <h2>1 min Plank</h2>
+                </div>
+                </div>
+                <div class="day">
+                    <h1>DAY 3</h1>
+                    <div class="exercise">
+                        <h2>Snatch</h2>
+                        <h2>(60 x 2)</h2>
+                        <h2>(65 x 2)</h2>
+                        <h2>(70 x 3)</h2>
+                        <h2>(75 x 3)</h2>
+                        <h2>(80 x 3)</h2>
+                    </div>
+                    <div class="exercise">
+                        <h2>Clean & Jerk</h2>
+                        <h2>(60 x 2)</h2>
+                        <h2>(65 x 3)</h2>
+                        <h2>(70 x 3)</h2>
+                        <h2>(75 x 3)</h2>
+                        <h2>(80 x 3)</h2>
+                    </div>
+                    <div class="exercise">
+                        <h2>Snatch High Pulls</h2>
+                        <h2>(80 x 3)</h2>
+                        <h2>(85 x 3)</h2>
+                        <h2>90 (2 x 2)</h2>
+                    </div>
+                    <div class="exercise">
+                        <h2>ACCESSORIES (3 Rounds)</h2>
+                        <h2>15 Weighted Calf Raises</h2>
+                        <h2>10 Wall Tibia Raises</h2>
+                        <h2>10 Depth Jumps</h2>
+                        <h2>1 min RVS Bench Plank</h2>
+                    </div>
+                </div>
+                <div class="day">
+                    <h1>DAY 4</h1>
+                    <div class="exercise">
+                        <h2>Snatch</h2>
+                        <h2>(60 x 3)</h2>
+                        <h2>(65 x 3)</h2>
+                        <h2>(70 x 3)</h2>
+                        <h2>(75 x 3)</h2>
+                        <h2>(80 x 3)</h2>
+                        <h2>85 (2 x 2)</h2>
+                        <h2>(90 x 2)</h2>
+                    </div>
+                    <div class="exercise">
+                        <h2>Clean & Jerk</h2>
+                        <h2>(60 x 3)</h2>
+                        <h2>(65 x 3)</h2>
+                        <h2>(70 x 3)</h2>
+                        <h2>(75 x 3)</h2>
+                        <h2>(80 x 3)</h2>
+                        <h2>85 (2 x 2)</h2>
+                        <h2>(90 x 2)</h2>
+                    </div>
+                    <div class="exercise">
+                        <h2>Back Squat</h2>
+                        <h2>(60 x 5)</h2>
+                        <h2>(65 x 5)</h2>
+                        <h2>(70 x 3)</h2>
+                        <h2>(75 x 3)</h2>
+                        <h2>(80 x 3)</h2>
+                        <h2>(85 x 2)</h2>
+                        <h2>(90 x 2)</h2>
+                        <h2>(95 x 1)</h2>
+                    </div>
+                    <div class="exercise">
+                        <h2>ACCESSORIES (3 Rounds)</h2>
+                        <h2>10 Bent Over Rows</h2>
+                        <h2>5 Push Press</h2>
+                        <h2>1 min Plank</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="week">
+                <h1>Week 4</h1>
+                <div class="day">
+                    <h1>DAY 1</h1>
+                    <div class="exercise">
+                        <h2>Low Hang Snatch</h2>
+                        <h2>(60 x 3)</h2>
+                        <h2>(65 x 3)</h2>
+                        <h2>(70 x 3)</h2>
+                        <h2>(75 x 3)</h2>
+                        <h2>(80 x 3)</h2>
+                        <h2>(83 x 2)</h2>
+                    </div>
+                    <div class="exercise">
+                        <h2>Power Clean + Power Jerk</h2>
+                        <h2>(60 x 3)</h2>
+                        <h2>(65 x 3)</h2>
+                        <h2>(70 x 3)</h2>
+                        <h2>(75 x 3)</h2>
+                        <h2>(80 x 3)</h2>
+                        <h2>(83 x 2)</h2>
+                    </div>
+                    <div class="exercise">
+                        <h2>Front Squat</h2>
+                        <h2>(60 x 4)</h2>
+                        <h2>(64 x 3)</h2>
+                        <h2>(70 x 3)</h2>
+                        <h2>(75 x 3)</h2>
+                        <h2>80 (2 x 3)</h2>
+                        <h2>(83 x 2)</h2>
+                    </div>
+                    <div class="exercise">
+                        <h2>ACCESSORIES (3 Rounds)</h2>
+                        <h2>10 Tricep Extensions</h2>
+                        <h2>10 Jumps</h2>
+                        <h2>10 Bicep Curls</h2>
+                        <h2>1 min Plank</h2>
+                    </div>
+                </div>
+                <div class="day">
+                    <h1>DAY 2</h1>
+                    <div class="exercise">
+                        <h2>Snatch</h2>
+                        <h2>(65 x 3)</h2>
+                        <h2>(70 x 3)</h2>
+                        <h2>(75 x 3)</h2>
+                        <h2>(80 x 2)</h2>
+                    </div>
+                    <div class="exercise">
+                        <h2>Clean & Jerk</h2>
+                        <h2>(65 x 3)</h2>
+                        <h2>(70 x 3)</h2>
+                        <h2>(75 x 3)</h2>
+                        <h2>(80 x 3)</h2>
+                    </div>
+                    <div class="exercise">
+                        <h2>Snatch High Pulls</h2>
+                        <h2>(85 x 3)</h2>
+                        <h2>87 (2 x 3)</h2>
+                        <h2>90 (2 x 2)</h2>
+                    </div>
+                    <div class="exercise">
+                        <h2>ACCESSORIES (3 Rounds)</h2>
+                        <h2>10 Kettlebell Swings</h2>
+                        <h2>10 Push Ups</h2>
+                        <h2>10 BTN Clean Grip Press</h2>
+                        <h2>1 min Superman</h2>
+                    </div>
+                </div>
+                <div class="day">
+                    <h1>DAY 3</h1>
+                    <div class="exercise">
+                        <h2>Snatch</h2>
+                        <h2>(60 x 3)</h2>
+                        <h2>(65 x 2)</h2>
+                        <h2>(70 x 2)</h2>
+                        <h2>(80 x 2)</h2>
+                        <h2>(85 x 2)</h2>
+                        <h2>(90 x 1)</h2>
+                        <h2>(95 x 1)</h2>
+                    </div>
+                        <div class="exercise">
+                            <h2>Clean & Jerk</h2>
+                            <h2>(60 x 3)</h2>
+                            <h2>(65 x 2)</h2>
+                            <h2>(70 x 2)</h2>
+                            <h2>(80 x 2)</h2>
+                            <h2>(85 x 2)</h2>
+                            <h2>(90 x 1)</h2>
+                            <h2>(95 x 1)</h2>
+                        </div>
+                        <div class="exercise">
+                            <h2>Back Squat</h2>
+                            <h2>(65 x 3)</h2>
+                            <h2>(70 x 3)</h2>
+                            <h2>(75 x 3)</h2>
+                            <h2>(80 x 3)</h2>
+                            <h2>(85 x 2)</h2>
+                            <h2>(90 x 1)</h2>
+                            <h2>(95 x 1)</h2>
+                            <h2>(100 x 1)</h2>
+                        </div>
+                        <div class="exercise">
+                            <h2>ACCESSORIES (3 Rounds)</h2>
+                            <h2>10 Barbell Rows</h2>
+                            <h2>10 Lu Raises</h2>
+                            <h2>1 min Plank</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="week">
+                    <h1>Week 5</h1>
+                    <div class="day">
+                        <h1>DAY 1</h1>
+                        <div class="exercise">
+                            <h2>Power Snatch</h2>
+                            <h2>(60 x 4)</h2>
+                            <h2>(65 x 3)</h2>
+                            <h2>70 (2 x 3)</h2>
+                            <h2>75 (2 x 3)</h2>
+                            <h2>(80 x 3)</h2>
+                        </div>
+                        <div class="exercise">
+                            <h2>2 Power Clean + Power Jerk</h2>
+                            <h2>(60 x 3)</h2>
+                            <h2>(65 x 3)</h2>
+                            <h2>(70 x 3)</h2>
+                            <h2>(75 x 3)</h2>
+                            <h2>(80 x 3)</h2>
+                        </div>
+                        <div class="exercise">
+                            <h2>Front Squat</h2>
+                            <h2>(65 x 3)</h2>
+                            <h2>(70 x 3)</h2>
+                            <h2>(85 x 3)</h2>
+                            <h2>(80 x 3)</h2>
+                            <h2>(85 x 3)</h2>
+                            <h2>(87 x 2)</h2>
+                        </div>
+                        <div class="exercise">
+                            <h2>Tempo Clean Pull</h2>
+                            <h2>85 (2 x 3)</h2>
+                            <h2>90 (3 x 2)</h2>
+                        </div>
+                        <div class="exercise">
+                            <h2>ACCESSORIES (3 Rounds)</h2>
+                            <h2>10 Shoulder Stretch</h2>
+                            <h2>10 Paloff Press</h2>
+                            <h2>10 Pull Ups</h2>
+                            <h2>1 min Weighted Plank</h2>
+                        </div>
+                    </div>
+                    <div class="day">
+                        <h1>DAY 2</h1>
+                        <div class="exercise">
+                            <h2>High Hang + Low Hang Snatch</h2>
+                            <h2>(60 x 2)</h2>
+                            <h2>(65 x 1)</h2>
+                            <h2>(70 x 1)</h2>
+                            <h2>(75 x 1)</h2>
+                            <h2>(80 x 1)</h2>
+                            <h2>(85 x 1)</h2>
+                        </div>
+                        <div class="exercise">
+                            <h2>Clean & Jerk</h2>
+                            <h2>(65 x 3)</h2>
+                            <h2>(70 x 3)</h2>
+                            <h2>(75 x 3)</h2>
+                            <h2>(80 x 3)</h2>
+                            <h2>(85 x 2)</h2>
+                        </div>
+                        <div class="exercise">
+                            <h2>Back Squat</h2>
+                            <h2>(60 x 4)</h2>
+                            <h2>(65 x 3)</h2>
+                            <h2>(70 x 3)</h2>
+                            <h2>75 (2 x 3)</h2>
+                            <h2>(80 x 3)</h2>
+                        </div>
+                        <div class="exercise">
+                            <h2>ACCESSORIES (3 Rounds)</h2>
+                            <h2>10 Jumps</h2>
+                            <h2>10 RDLs</h2>
+                            <h2>10 Tricep Extensions</h2>
+                            <h2>1 min Hollow Hold</h2>
+                        </div>
+                    </div>
+                    <div class="day">
+                        <h1>DAY 3</h1>
+                        <div class="exercise">
+                            <h2>Snatch</h2>
+                            <h2>(70 x 3)</h2>
+                            <h2>(75 x 3)</h2>
+                            <h2>(80 x 3)</h2>
+                        </div>
+                        <div class="exercise">
+                            <h2>Clean & Jerk</h2>
+                            <h2>(70 x 3)</h2>
+                            <h2>(75 x 3)</h2>
+                            <h2>(80 x 3)</h2>
+                        </div>
+                        <div class="exercise">
+                            <h2>Tempo Snatch Pulls</h2>
+                            <h2>85 (2 x 3)</h2>
+                            <h2>90 (3 x 2)</h2>
+                        </div>
+                        <div class="exercise">
+                            <h2>ACCESSORIES (3 Rounds)</h2>
+                            <h2>10 Bicep Curls</h2>
+                            <h2>10 Barbell Rows</h2>
+                            <h2>1 min Superman Hold</h2>
+                        </div>
+                    </div>
+                    <div class="day">
+                        <h1>DAY 4</h1>
+                        <div class="exercise">
+                            <h2>Snatch</h2>
+                            <h2>(60 x 3)</h2>
+                            <h2>(65 x 3)</h2>
+                            <h2>(70 x 2)</h2>
+                            <h2>(75 x 2)</h2>
+                            <h2>(80 x 2)</h2>
+                            <h2>(85 x 2)</h2>
+                            <h2>(90 x 1)</h2>
+                            <h2>(95 x 1)</h2>
+                            <h2>(97 x 1)</h2>
+                        </div>
+                        <div class="exercise">
+                            <h2>Clean & Jerk</h2>
+                            <h2>(60 x 3)</h2>
+                            <h2>(65 x 3)</h2>
+                            <h2>(70 x 2)</h2>
+                            <h2>(75 x 2)</h2>
+                            <h2>(80 x 2)</h2>
+                            <h2>(85 x 2)</h2>
+                            <h2>(90 x 1)</h2>
+                            <h2>(95 x 1)</h2>
+                            <h2>(97 x 1)</h2>
+                        </div>
+                        <div class="exercise">
+                            <h2>Front Squat</h2>
+                            <h2>(60 x 4)</h2>
+                            <h2>(65 x 3)</h2>
+                            <h2>(70 x 3)</h2>
+                            <h2>(75 x 3)</h2>
+                            <h2>(80 x 3)</h2>
+                            <h2>(85 x 2)</h2>
+                            <h2>(90 x 2)</h2>
+                            <h2>(95 x 1)</h2>
+                            <h2>(100 x 1)</h2>
+                        </div>
+                        <div class="exercise">
+                            <h2>ACCESSORIES (3 Rounds)</h2>
+                            <h2>10 Bicep Curls</h2>
+                            <h2>15 Weighted Calf Raises</h2>
+                            <h2>1 min Weighted Plank</h2>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="week">
+                        <h1>Week 6</h1>
+                        <div class="day">
+                            <h1>DAY 1</h1>
+                            <div class="exercise">
+                                <h2>Power Snatch</h2>
+                                <h2>(60 x 3)</h2>
+                                <h2>(65 x 3)</h2>
+                                <h2>(70 x 3)</h2>
+                                <h2>(75 x 3)</h2>
+                            </div>
+                            <div class="exercise">
+                                <h2>Power Clean + Power Jerk</h2>
+                                <h2>(60 x 3)</h2>
+                                <h2>(65 x 3)</h2>
+                                <h2>(70 x 3)</h2>
+                                <h2>(75 x 3)</h2>
+                                <h2>(80 x 3)</h2>
+                            </div>
+                            <div class="exercise">
+                                <h2>Back Squat</h2>
+                                <h2>(65 x 3)</h2>
+                                <h2>(70 x 3)</h2>
+                                <h2>75 (2 x 3)</h2>
+                                <h2>(80 x 3)</h2>
+                                <h2>83 (2 x 2)</h2>
+                            </div>
+                            <div class="exercise">
+                                <h2>Tempo Clean Pulls</h2>
+                                <h2>(90 x 3)</h2>
+                                <h2>92 (2 x 2)</h2>
+                            </div>
+                            <div class="exercise">
+                                <h2>ACCESSORIES (4 Rounds)</h2>
+                                <h2>10 Weighted Jumps</h2>
+                                <h2>10 Pull Ups</h2>
+                                <h2>10 Tricep Extensions</h2>
+                                <h2>1 min Hollow Hold</h2>
+                            </div>
+                        </div>
+                        <div class="day">
+                            <h1>DAY 2</h1>
+                            <div class="exercise">
+                                <h2>Snatch</h2>
+                                <h2>(65 x 3)</h2>
+                                <h2>(70 x 3)</h2>
+                                <h2>(75 x 2)</h2>
+                                <h2>(80 x 2)</h2>
+                            </div>
+                            <div class="exercise">
+                                <h2>Clean & Jerk</h2>
+                                <h2>(60 x 2)</h2>
+                                <h2>(65 x 2)</h2>
+                                <h2>(70 x 2)</h2>
+                                <h2>(75 x 2)</h2>
+                            </div>
+                            <div class="exercise">
+                                <h2>Front Squat</h2>
+                                <h2>(65 x 3)</h2>
+                                <h2>(70 x 3)</h2>
+                                <h2>(75 x 3)</h2>
+                                <h2>80 (2 x 2)</h2>
+                                <h2>85 (2 x 2)</h2>
+                                <h2>(90 x 2)</h2>
+                            </div>
+                            <div class="exercise">
+                                <h2>ACCESSORIES (4 Rounds)</h2>
+                                <h2>15 Weighted Calf Raises</h2>
+                                <h2>10 Bicep Curls</h2>
+                                <h2>10 Chest Press</h2>
+                            </div>
+                        </div>
+                        <div class="day">
+                            <h1>DAY 3</h1>
+                            <div class="exercise">
+                                <h2>Snatch</h2>
+                                <h2>(60 x 3)</h2>
+                                <h2>(65 x 3)</h2>
+                                <h2>(70 x 2)</h2>
+                                <h2>(75 x 2)</h2>
+                                <h2>(80 x 2)</h2>
+                                <h2>(85 x 2)</h2>
+                                <h2>(90 x 1)</h2>
+                                <h2>(95 x 1)</h2>
+                                <h2>(100 x 1)</h2>
+                            </div>
+                            <div class="exercise">
+                                <h2>Clean & Jerk</h2>
+                                <h2>(60 x 3)</h2>
+                                <h2>(65 x 3)</h2>
+                                <h2>(70 x 2)</h2>
+                                <h2>(75 x 2)</h2>
+                                <h2>(80 x 2)</h2>
+                                <h2>(85 x 2)</h2>
+                                <h2>(90 x 1)</h2>
+                                <h2>(95 x 1)</h2>
+                                <h2>(100 x 1)</h2>
+                                <h2>+1 Optional Single</h2>
+                            </div>
+                            <div class="exercise">
+                                <h2>Snatch Pull</h2>
+                                <h2>(90 x 3)</h2>
+                                <h2>(93 x 3)</h2>
+                            </div>
+                            <div class="exercise">
+                                <h2>ACCESSORIES</h2>
+                                <h2>3 x 1 min Plank</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="week">
+                        <h1>Week 7</h1>
+                        <div class="day">
+                            <h1>DAY 1</h1>
+                            <div class="exercise">
+                                <h2>High Hang + Low Hang + Snatch</h2>
+                                <h2>(60 x 1)</h2>
+                                <h2>(65 x 1)</h2>
+                                <h2>(70 x 1)</h2>
+                                <h2>(75 x 1)</h2>
+                                <h2>(80 x 1)</h2>
+                                <h2>(83 x 1)</h2>
+                            </div>
+                            <div class="exercise">
+                                <h2>Clean & Jerk</h2>
+                                <h2>(60 x 3)</h2>
+                                <h2>(65 x 3)</h2>
+                                <h2>(70 x 3)</h2>
+                                <h2>75 (2 x 3)</h2>
+                                <h2>(78 x 2)</h2>
+                            </div>
+                            <div class="exercise">
+                                <h2>Back Squat</h2>
+                                <h2>(60 x 3)</h2>
+                                <h2>(65 x 3)</h2>
+                                <h2>(70 x 3)</h2>
+                                <h2>(75 x 3)</h2>
+                                <h2>(80 x 3)</h2>
+                                <h2>(85 x 2)</h2>
+                            </div>
+                            <div class="exercise">
+                                <h2>Flat Foot Clean Pulls</h2>
+                                <h2>90 (2 x 3)</h2>
+                                <h2>(93 x 3)</h2>
+                            </div>
+                            <div class="exercise">
+                                <h2>ACCESSORIES (3 Rounds)</h2>
+                                <h2>5 BTN Press</h2>
+                                <h2>10 DB Bench Press</h2>
+                                <h2>15 Wrist Curls</h2>
+                                <h2>1 min RVS Bench Plank</h2>
+                            </div>
+                        </div>
+                        <div class="day">
+                            <h1>DAY 2</h1>
+                            <div class="exercise">
+                                <h2>Snatch</h2>
+                                <h2>(60 x 3)</h2>
+                                <h2>(65 x 3)</h2>
+                                <h2>(70 x 3)</h2>
+                                <h2>(75 x 2)</h2>
+                            </div>
+                            <div class="exercise">
+                                <h2>Clean & Jerk</h2>
+                                <h2>(60 x 3)</h2>
+                                <h2>(65 x 3)</h2>
+                                <h2>(70 x 3)</h2>
+                                <h2>(75 x 2)</h2>
+                            </div>
+                            <div class="exercise">
+                                <h2>Front Squat</h2>
+                                <h2>(60 x 3)</h2>
+                                <h2>(65 x 3)</h2>
+                                <h2>(70 x 3)</h2>
+                                <h2>(75 x 3)</h2>
+                                <h2>(80 x 3)</h2>
+                                <h2>(85 x 3)</h2>
+                                <h2>(90 x 2)</h2>
+                            </div>
+                            <div class="exercise">
+                                <h2>ACCESSORIES (3 Rounds)</h2>
+                                <h2>10 Bicep Curls</h2>
+                                <h2>15 Weighted Calf Raises</h2>
+                                <h2>1 min Hanging Tuck Hold</h2>
+                            </div>
+                        </div>
+                        <div class="day">
+                            <h1>DAY 3</h1>
+                            <div class="exercise">
+                                <h2>Snatch</h2>
+                                <h2>(65 x 2)</h2>
+                                <h2>(70 x 2)</h2>
+                                <h2>(75 x 2)</h2>
+                                <h2>(80 x 2)</h2>
+                                <h2>(83 x 2)</h2>
+                            </div>
+                            <div class="exercise">
+                                <h2>Clean & Jerk</h2>
+                                <h2>(65 x 3)</h2>
+                                <h2>(70 x 2)</h2>
+                                <h2>(75 x 2)</h2>
+                                <h2>(80 x 2)</h2>
+                            </div>
+                            <div class="exercise">
+                                <h2>Tempo Snatch Pulls</h2>
+                                <h2>90 (2 x 3)</h2>
+                                <h2>(93 x 3)</h2>
+                            </div>
+                            <div class="exercise">
+                                <h2>ACCESSORIES (3 Rounds)</h2>
+                                <h2>10 Tricep Extensions</h2>
+                                <h2>10 Standing DB Flies</h2>
+                                <h2>1 min Side Plank</h2>
+                            </div>
+                        </div>
+                        <div class="day">
+                            <h1>DAY 4</h1>
+                            <div class="exercise">
+                                <h2>Snatch</h2>
+                                <h2>(65 x 3)</h2>
+                                <h2>(70 x 3)</h2>
+                                <h2>(75 x 2)</h2>
+                                <h2>(80 x 2)</h2>
+                                <h2>(85 x 2)</h2>
+                                <h2>(90 x 1)</h2>
+                                <h2>(92 x 1)</h2>
+                            </div>
+                            <div class="exercise">
+                                <h2>Clean & Jerk</h2>
+                                <h2>(65 x 3)</h2>
+                                <h2>(70 x 3)</h2>
+                                <h2>(75 x 2)</h2>
+                                <h2>(80 x 2)</h2>
+                                <h2>(85 x 2)</h2>
+                                <h2>(90 x 1)</h2>
+                                <h2>(92 x 1)</h2>
+                            </div>
+                            <div class="exercise">
+                                <h2>Back Squat</h2>
+                                <h2>(70 x 3)</h2>
+                                <h2>(75 x 3)</h2>
+                                <h2>(80 x 2)</h2>
+                                <h2>(85 x 2)</h2>
+                                <h2>(90 x 2)</h2>
+                                <h2>(93 x 1)</h2>
+                                <h2>(96 x 1)</h2>
+                            </div>
+                            <div class="exercise">
+                                <h2>ACCESSORIES (3 Rounds)</h2>
+                                <h2>10 Jumps</h2>
+                                <h2>10 Paloff Press</h2>
+                                <h2>1 min Weighted Plank</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="week">
+                        <h1>Week 8</h1>
+                        <div class="day">
+                            <h1>DAY 1</h1>
+                            <div class="exercise">
+                                <h2>Snatch</h2>
+                                <h2>(65 x 3)</h2>
+                                <h2>(70 x 3)</h2>
+                                <h2>(75 x 2)</h2>
+                                <h2>(80 x 2)</h2>
+                                <h2>85 (3 x 1)</h2>
+                            </div>
+                            <div class="exercise">
+                                <h2>Clean & Jerk</h2>
+                                <h2>(65 x 3)</h2>
+                                <h2>(70 x 3)</h2>
+                                <h2>(75 x 2)</h2>
+                                <h2>(80 x 2)</h2>
+                                <h2>85 (3 x 1)</h2>
+                            </div>
+                            <div class="exercise">
+                                <h2>Back Squat</h2>
+                                <h2>(75 x 3)</h2>
+                                <h2>(80 x 3)</h2>
+                                <h2>(85 x 3)</h2>
+                            </div>
+                            <div class="exercise">
+                                <h2>ACCESSORIES (4 Rounds)</h2>
+                                <h2>8 Paloff Press</h2>
+                                <h2>Banded Tricep Push Down</h2>
+                                <h2>1 min Reverse Plank</h2>
+                                <h2>Bar Work</h2>
+                            </div>
+                        </div>
+                        <div class="day">
+                            <h1>DAY 2</h1>
+                            <div class="exercise">
+                                <h2>Snatch</h2>
+                                <h2>(60 x 3)</h2>
+                                <h2>(65 x 3)</h2>
+                                <h2>70 (2 x 3)</h2>
+                            </div>
+                            <div class="exercise">
+                                <h2>Clean & Jerk</h2>
+                                <h2>(60 x 3)</h2>
+                                <h2>(65 x 3)</h2>
+                                <h2>70 (2 x 3)</h2>
+                            </div>
+                            <div class="exercise">
+                                <h2>Front Squat</h2>
+                                <h2>80 (2 x 2)</h2>
+                            </div>
+                            <div class="exercise">
+                                <h2>ACCESSORIES (3 Rounds)</h2>
+                                <h2>8 Lu Raises</h2>
+                                <h2>1 min Couch Stretch</h2>
+                                <h2>1 min Plank</h2>
+                                <h2>Bar Work</h2>
+                            </div>
+                        </div>
+                        <div class="day">
+                            <h1>DAY 3</h1>
+                            <div class="exercise">
+                                <h2>Snatch</h2>
+                                <h2>50 (2 x 3)</h2>
+                                <h2>55 (3 x 3)</h2>
+                            </div>
+                            <div class="exercise">
+                                <h2>Clean & Jerk</h2>
+                                <h2>50 (2 x 3)</h2>
+                                <h2>55 (3 x 3)</h2>
+                            </div>
+                            <div class="exercise">
+                                <h2>ACCESSORIES (3 Rounds)</h2>
+                                <h2>Tempo Snatch</h2>
+                                <h2>Tempo Clean & Jerk</h2>
+                            </div>
+                        </div>
+                        <div class="day">
+                            <h1>DAY 4</h1>
+                            <div class="exercise">
+                                <h2>Meet/Mock Meet/Max Out Day!</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- PROGRAM DISPLAY SCREEN -->
+    <div id="program-display-screen" style="display: none;">
+        <button id="back-btn" onclick="showMyPrograms()">← Back to My Programs</button>
+        <div id="program-display"></div>
+    </div>
+
+    <footer style="text-align:center"><em>The Lifting Platform. Est. 2025.</em></footer>
+
+    <script src="../js/program.js"></script>
+
+</body>
+</html>

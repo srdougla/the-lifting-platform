@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Goals</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo-section">
+            <img src="../images/liftinglogo.jpg" alt="Logo" class="logo">
+            <h1>The Lifting Platform</h1>
+        </div>
+
+        <nav class="menu">
+            <div class="dropdown">
+                <button class="dropdown-btn">Menu ▼</button>
+                <div class="dropdown-content">
+                    <a href="../index.html">Home</a>
+                    <a href="journal.html">My Journal</a>
+                    <a href="program.html">Programming</a>
+                    <a href="bar.html">Loading Game</a>
+                    <a href="info.html">Percentage Calculator</a>
+                    <a href="technique.html">Lift Library</a>
+                    <a href="profile.html">Profile</a>
+                </div>
+            </div>
+        </nav>        
+    </header>
+
+    <h1 style="text-align: center">My Goals</h1>
+    
+    <!-- 
+    Goal form: 
+    Type (lift or non-lift (bodyweight, mobility, conditioning))
+    Target weight/metric
+    target date
+    priority (high, med, low)
+    notes/strategies
+
+    Cards showing all goals
+    Filters: added (oldest/newest, priority level, time left)
+    progress bars
+    Edit/Complete/Delete goal
+    -->
+
+    <button id="createGoal">Create New Goal</button>
+
+    <form id="goalForm" style="display:none">
+        <fieldset>
+            <legend>Goal Category</legend>
+            <input type="text" id="category" name="target" placeholder="e.g. Lift, mobility, weight, etc." required>
+        </fieldset>
+
+        <fieldset>
+            <legend>Target Metric</legend>
+            <input type="text" id="targetMetric" name="targetMetric" placeholder="e.g. 100 kg, 5 pull-ups, full split" required>
+        </fieldset>
+
+        <fieldset>
+            <legend>Target Date</legend>
+            <input type="date" id="targetDate" name="targetDate" required>
+        </fieldset>
+
+        <fieldset>
+            <legend>Priority Level</legend>
+            <label for="low">Low</label>
+            <input type="radio" id="low" name="priority" value="Low" required>
+            <label for="medium">Medium</label>
+            <input type="radio" id="medium" name="priority" value="Medium" required>
+            <label for="high">High</label>
+            <input type="radio" id="high" name="priority" value="High" required>
+        </fieldset>
+
+        <fieldset>
+            <legend>Notes</legend>
+            <textarea id="notes" name="notes" placeholder="Enter any strategies, approaches, or habits that you will implement to achieve your goal."></textarea>
+        </fieldset>
+
+        <button type="submit" id="addGoal">Add Goal</button>
+
+    </form>
+
+    <div id="goalsContainer" class="goals-container"></div>
+
+    <p style="text-align: center"><em>The most important thing is having a goal. I can’t become strong without having a goal. But having a goal is only one side of it. What is the reason behind having this goal is equally important. There are athletes who are motivated by money, by fame, or simply by putting up a fight. Everybody has their own reason, their own focus. So personal development plays an intrinsic part in everything. Having the right training strategy is one thing but titles are won in your mind. <br>- MS</em></p>
+
+    <footer style="text-align:center"><em>The Lifting Platform. Est. 2025.</em></footer>
+
+    <script src="../js/goals.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo-section">
+            <img src="../images/liftinglogo.jpg" alt="Logo" class="logo">
+            <h1>The Lifting Platform</h1>
+        </div>
+
+        <nav class="menu">
+            <div class="dropdown">
+                <button class="dropdown-btn">Menu ▼</button>
+                <div class="dropdown-content">
+                    <a href="../index.html">Home</a>
+                    <a href="journal.html">My Journal</a>
+                    <a href="program.html">Programming</a>
+                    <a href="bar.html">Loading Game</a>
+                    <a href="info.html">Percentage Calculator</a>
+                    <a href="technique.html">Lift Library</a>
+                    <a href="profile.html">Profile</a>
+                </div>
+            </div>
+        </nav>      
+    </header>
+
+    <h1 style="text-align: center">Your Profile</h1>
+
+    <div class="profile-container" id="profile-container">
+        <div class="profile-pic" id="profile-pic">
+            <img src="../images/profilepic.jpg">
+        </div>
+        
+        <div class="profile-info" id="profile-info">
+            <a id="display-name">Your Name Here</a><br>
+            <a id="display-age">____ years old</a><br>
+            <a id="display-gender">Gender, </a>
+            <a id="display-weight">____ kgs</a><br>
+            <a id="display-total">Total PR: ____ kgs</a>
+        </div>
+    </div>
+
+
+    <button id="edit-profile" onclick="window.location.href='editprofile.html'">Edit Profile</button>
+
+    <footer style="text-align:center"><em>The Lifting Platform. Est. 2025.</em></footer>
+
+    <script src="../js/profile.js"></script>
+
+</body>
+</html>

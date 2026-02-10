@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Notes</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo-section">
+            <img src="../images/liftinglogo.jpg" alt="Logo" class="logo">
+            <h1>The Lifting Platform</h1>
+        </div>
+
+        <nav class="menu">
+            <div class="dropdown">
+                <button class="dropdown-btn">Menu ▼</button>
+                <div class="dropdown-content">
+                    <a href="../index.html">Home</a>
+                    <a href="journal.html">My Journal</a>
+                    <a href="program.html">Programming</a>
+                    <a href="bar.html">Loading Game</a>
+                    <a href="info.html">Percentage Calculator</a>
+                    <a href="technique.html">Lift Library</a>
+                    <a href="profile.html">Profile</a>
+                </div>
+            </div>
+        </nav>     
+    </header>
+
+    <div class="container">
+        <h1 style="text-align:center">My Notebook</h1>
+        <h3 style="text-align:center">Keep track of any cues, warm-ups, nutrition tips, recovery methods, and training insights that help you lift smarter and stay consistent.</h3>
+
+        <div class="new-entry-section">
+            <h2>New Entry</h2>
+            <form id="notes-form">
+                <div class="form-group-notes">
+                    <label for="entry-title">Title</label>
+                    <input type="text" id="entry-title" placeholder="Enter a title..." required>
+                </div>
+
+                <div class="form-group-notes">
+                    <label>Date</label>
+                    <div class="date-display" id="current-date"></div>
+                </div>
+
+                <div class="form-group-notes">
+                    <label for="entry-content">Entry</label>
+                    <textarea id="entry-content" placeholder="Write your thoughts..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Save Entry</button>
+            </form>
+        </div>
+
+        <div class="entries-section">
+            <h2>All Entries</h2>
+            <div id="entries-container"></div>
+        </div>
+    </div>
+
+    <footer style="text-align:center"><em>The Lifting Platform. Est. 2025.</em></footer>
+
+    <script src="../js/notes.js"></script>
+
+</body>
+</html>
