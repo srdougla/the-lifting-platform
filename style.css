@@ -3182,17 +3182,17 @@ footer {
     }
     
     .change-yellow-plate {
-        width: 14px;
+        width: 10px;
         aspect-ratio: 1/6.15;
     }
     
     .change-green-plate {
-        width: 16px;
+        width: 8px;
         aspect-ratio: 1/5.1;
     }
     
     .change-white-tiny-plate {
-        width: 18px;
+        width: 6px;
         aspect-ratio: 1/4.05;
     }
     
@@ -3207,8 +3207,8 @@ footer {
     }
     
     .collar-plate {
-        width: 24px;
-        aspect-ratio: 1/2;
+        width: 13px;
+        aspect-ratio: 1/2.5;
     }
 
     #submitButton {
@@ -3512,12 +3512,12 @@ footer {
     }
     
     .change-white-plate {
-        width: 7px;
+        width: 14px;
         aspect-ratio: 1/9;
     }
     
     .change-red-plate {
-        width: 8px;
+        width: 12px;
         aspect-ratio: 1/8.5;
     }
     
@@ -3527,18 +3527,18 @@ footer {
     }
     
     .change-yellow-plate {
-        width: 11px;
+        width: 8px;
         aspect-ratio: 1/6.15;
     }
     
     .change-green-plate {
-        width: 13px;
+        width: 6px;
         aspect-ratio: 1/5.1;
     }
     
     .change-white-tiny-plate {
-        width: 15px;
-        aspect-ratio: 1/4.05;
+        width: 5px;
+        aspect-ratio: 1/4;
     }
     
     .bumper-white-plate {
@@ -3552,7 +3552,7 @@ footer {
     }
     
     .collar-plate {
-        width: 22px;
+        width: 14px;
         aspect-ratio: 1/2;
     }
 
